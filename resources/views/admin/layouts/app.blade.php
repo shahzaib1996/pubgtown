@@ -29,6 +29,11 @@
   <!-- <link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css"> -->
   <link href="{{ asset('admin/plugins/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
 
+   <!-- DataTables -->
+  <!-- <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> -->
+  <link href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+
+
 
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -172,6 +177,13 @@
 <!-- SlimScroll -->
 <!-- <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script> -->
 <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}" ></script>
+
+<!-- DataTables -->
+<!-- <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script> -->
+<script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js') }}" ></script>
+<!-- <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
+<script src="{{ asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}" ></script>
+
 
 @stack('scripts')
 

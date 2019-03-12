@@ -17,8 +17,8 @@ class CreateContestTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('map');
-            $table->date('date');
-            $table->time('time');
+            $table->date('contest_date');
+            $table->time('contest_time');
             $table->integer('prize_pool');
             $table->integer('entry_fee');
             $table->integer('per_kill');
@@ -28,6 +28,7 @@ class CreateContestTable extends Migration
             $table->integer('rank_4');
             $table->integer('rank_5');
             $table->integer('no_of_teams');
+            $table->integer('total_collection');
             $table->boolean('is_active')->default(1);
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();

@@ -21,6 +21,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test','HomeController@test');
 
 // ADMIN ROUTES
-Route::get('/adminhome','AdminController@index')->name('admin');
-Route::get('/newcontest','AdminController@newContest');
-Route::post('/createcontest','AdminController@createContest');
+Route::prefix('admin')->group(function () {
+    
+Route::get('/home','AdminController@index')->name('admin');
+Route::get('/contest/new','AdminController@newContest');
+Route::post('contest/create','AdminController@createContest');
+Route::get('/contests','AdminController@contests');
+Route::get('/contest/{id}','AdminController@contest');
+Route::get('/contest/edit/{id}','AdminController@editContest');
+Route::post('/contest/update','AdminController@updateContest');
+Route::get('/contest/delete/{id}','AdminController@deleteContest');
+
+});
