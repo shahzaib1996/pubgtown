@@ -3,9 +3,9 @@
 @section('content')
 
 <section class="content-header">
-	<h1>
-		Create Contest
-	</h1>  
+    <h1>
+        Create Contest
+    </h1>  
 </section>
 
 <!-- Main content -->
@@ -43,7 +43,6 @@
                   <th>Rank#5</th>
                   <th>No of Teams</th>
                   <th>Total Collection</th>
-                  <th>Details</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
@@ -76,13 +75,8 @@
                   <td>Rs. {{$contest->total_collection}}</td>
                   <td>
 
-                      <a href="../admin/contest/{{$contest->id}}" class="btn btn-info @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-list"></i> </a>
-                  </td>
-                  <td>
-
                       <a href="../admin/contest/edit/{{$contest->id}}" class="btn btn-info @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-edit"></i> </a>
                   </td>
-
                   <td>
 
                       <a href="../admin/contest/delete/{{$contest->id}}" class="btn btn-warning @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-trash-o"></i> </a>
@@ -90,6 +84,7 @@
                 </tr>
                 @endforeach
                 </tbody>
+                
               </table>
             </div>
             <!-- /.box-body -->

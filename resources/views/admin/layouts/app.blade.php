@@ -43,6 +43,9 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  @stack('css')
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -126,10 +129,21 @@
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
+          </a> 
+          <ul class="treeview-menu">
+            <li><a href="{{route('admin.contests')}}">View</a></li>
+            <li><a href="{{route('admin.contest.new')}}">Add New</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Player</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">View</a></li>
-            <li><a href="#">Add New</a></li>
+            <li><a href="">---</a></li>
+            <li><a href="">---</a></li>
           </ul>
         </li>
       </ul>

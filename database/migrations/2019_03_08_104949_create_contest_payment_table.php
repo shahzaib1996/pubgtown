@@ -17,15 +17,15 @@ class CreateContestPaymentTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('contest_id')->unsigned()->index();
             $table->foreign('contest_id')->references('id')->on('contest')->onDelete('cascade');
-            $table->bigInteger('identification_id')->unsigned()->index();
-            $table->foreign('identification_id')->references('id')->on('identification')->onDelete('cascade');
-            $table->integer('rank');
-            $table->integer('kills');
-            $table->integer('pay_entry');
-            $table->boolean('check_entry');
-            $table->integer('prize');
-            $table->integer('pay_total_prize');
-            $table->boolean('check_prize');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('rank')->default(0);
+            $table->integer('kills')->default(0);
+            $table->integer('pay_entry')->default(0);
+            $table->boolean('check_entry')->default(0);
+            $table->integer('prize')->default(0);
+            $table->integer('pay_total_prize')->default(0);
+            $table->boolean('check_prize')->default(0);
             $table->timestamps();
         });
     }

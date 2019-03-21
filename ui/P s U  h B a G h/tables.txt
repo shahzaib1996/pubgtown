@@ -1,0 +1,16 @@
+users[5]
+id,name,email,password,is_admin
+
+identification[3]
+id,user_id[FK_users],nick,
+
+contests[16]
+id,type,map,date,time,prize_pool,entry_fee,per_kill,rank_1,rank_2,rank_3,rank_4,rank_5,no_of_teams,is_active,is_deleted
+
+contest_payment[Bridge Table]
+id,contest_id[FK_contest],user_id[FK_identification],pay_entry,check_entry,pay_prize,check_prize
+
+
+
+
+4:07 PM 3/7/2019

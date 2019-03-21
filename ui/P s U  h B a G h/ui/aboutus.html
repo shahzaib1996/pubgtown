@@ -13,11 +13,9 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
 
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
-  <link href="{{ asset('user/css/main.css') }}" rel="stylesheet">
 
-@stack('css')
 
   <title>PUBGTOWN</title>
 </head>
@@ -34,7 +32,7 @@
             <i class="fas fa-bars"></i>
           </a>
           <a href="#" class="mlogo">
-            <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
+            <img src="images/mlogo.png" class="img-fluid" width="60px">
           </a>
 
           <!-- Before Login  -->
@@ -62,7 +60,7 @@
             <div class="row">
 
               <div class="col hs21 t-c">
-                <a href="/" class="active">
+                <a href="" class="active">
                   <i class="fas fa-trophy"></i> Contests
                 </a>
               </div>
@@ -91,7 +89,24 @@
       <div id="main-body" class="">
 
         <!-- contest list start -->
-        @yield('content')
+        <section class="list-contests">
+
+          <div class="text-box bg-white-i border-grey b-s m-b-20 p-b-20 p-t-20 p-l-20 p-r-20 m-t-20">
+
+            <div class="f-roboto f18 t-c">About Us</div>
+
+            <div class="t-c f13 f-roboto m-t-20 black">
+              We aim to be the biggest e-sports gaming platform with PUBG. If you think you have what it takes, then this is the place for you. It is a game of skill that offers gamers a platform to showcase their talent and make a career as a professional gamer. 
+              <br><br>
+              We help hardcore gamers as well as novice players increase their engagement and connect deeper with their favorite e-sport. 
+              <br><br>
+              Also, you can use your skills to earn handsome rewards and someday you can choose this as a career.
+            </div>
+
+          </div>
+
+          
+        </section>
 
         <section class="foot-box">
           <div class="bottom">
@@ -102,13 +117,13 @@
 
             <div class="flex-c-c m-t-10">
               <a href="">
-                <img src="{{ asset('user/images/instagram.png') }}" class="w-30">
+                <img src="images/instagram.png" class="w-30">
               </a>
               <a href="">
-                <img src="{{ asset('user/images/facebook.png') }}" class="w-30 m-l-20">
+                <img src="images/facebook.png" class="w-30 m-l-20">
               </a>
               <a href="">
-                <img src="{{ asset('user/images/youtube.png') }}" class="w-30 m-l-20">
+                <img src="images/youtube.png" class="w-30 m-l-20">
               </a>
             </div>
 
@@ -148,8 +163,8 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px">
-        <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
+        <img src="images/main.png" class="img-fluid main-logo" width="400px">
+        <div class="slogan">Kill First, Die Last, No Luck, All Skill</div>
       </div>
 
     </section>
@@ -161,8 +176,5 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  @stack('scripts')
-
 </body>
 </html>

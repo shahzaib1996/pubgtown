@@ -13,11 +13,9 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
 
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
-  <link href="{{ asset('user/css/main.css') }}" rel="stylesheet">
 
-@stack('css')
 
   <title>PUBGTOWN</title>
 </head>
@@ -34,26 +32,11 @@
             <i class="fas fa-bars"></i>
           </a>
           <a href="#" class="mlogo">
-            <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
+            <img src="images/mlogo.png" class="img-fluid" width="60px">
           </a>
-
-          <!-- Before Login  -->
           <a href="#" class="login">
             LOG IN
           </a>
-
-          <!-- After Login Btn -->
-          <!-- <div class="dropdown">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="images/instagram.png" class="circular w-30 h-30">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
-              <a class="dropdown-item dd-a-c" href="#">Profile</a>
-              <a class="dropdown-item dd-a-c" href="">Logout</a>
-            </div>
-          </div> -->
-
-
         </div>
 
         <div class="head-sec-2">
@@ -62,7 +45,7 @@
             <div class="row">
 
               <div class="col hs21 t-c">
-                <a href="/" class="active">
+                <a href="" class="active">
                   <i class="fas fa-trophy"></i> Contests
                 </a>
               </div>
@@ -91,7 +74,67 @@
       <div id="main-body" class="">
 
         <!-- contest list start -->
-        @yield('content')
+        <section class="list-menu">
+
+          <div class="morelinks bg-white">
+
+            <a href="" class="flex-sb-c p-10 pointer">
+              <div>
+                <img src="images/aim.png" class="w-30" alt="Aim Icon">
+                <span class="m-l-10 ">Profile</span>
+              </div>
+              <div class="f14">
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
+
+            <a href="" class="flex-sb-c p-10 pointer">
+              <div>
+                <img src="images/aim.png" class="w-30" alt="Aim Icon">
+                <span class="m-l-10 ">My Squad</span>
+              </div>
+              <div class="f14">
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
+
+            <a href="" class="flex-sb-c p-10 pointer">
+              <div>
+                <img src="images/aim.png" class="w-30" alt="Aim Icon">
+                <span class="m-l-10 ">Transaction History</span>
+              </div>
+              <div class="f14">
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
+
+            <div class="h-5 bg-black"> </div>
+
+            <a href="" class="flex-sb-c p-10 pointer">
+              <div>
+                <img src="images/aim.png" class="w-30" alt="Aim Icon">
+                <span class="m-l-10 ">About Us</span>
+              </div>
+              <div class="f14">
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
+
+            <a href="" class="flex-sb-c p-10 pointer">
+              <div>
+                <img src="images/aim.png" class="w-30" alt="Aim Icon">
+                <span class="m-l-10 ">Contact Us</span>
+              </div>
+              <div class="f14">
+                <i class="fa fa-angle-right"></i>
+              </div>
+            </a>
+            
+          </div>
+          
+          
+          
+        </section>
 
         <section class="foot-box">
           <div class="bottom">
@@ -102,28 +145,28 @@
 
             <div class="flex-c-c m-t-10">
               <a href="">
-                <img src="{{ asset('user/images/instagram.png') }}" class="w-30">
+                <img src="images/instagram.png" class="w-30">
               </a>
               <a href="">
-                <img src="{{ asset('user/images/facebook.png') }}" class="w-30 m-l-20">
+                <img src="images/facebook.png" class="w-30 m-l-20">
               </a>
               <a href="">
-                <img src="{{ asset('user/images/youtube.png') }}" class="w-30 m-l-20">
+                <img src="images/youtube.png" class="w-30 m-l-20">
               </a>
             </div>
 
             <div class="links-box flex-sb-c white-i">
               <div class="f12">
-                <a href="" class="blink block white-i t-decor">About Us</a>
-                <a href="" class="blink block m-t-5 white-i t-decor"></a>
+                <a href="" class="blink block white">About Us</a>
+                <a href="" class="blink block m-t-5 white"></a>
               </div>
               <div class="f12">
-                <a href="" class="blink block white-i t-decor">Privacy Policy</a>
-                <a href="" class="blink block m-t-5 white-i t-decor">Terms of Use</a>
+                <a href="" class="blink block white">Privacy Policy</a>
+                <a href="" class="blink block m-t-5 white">Terms of Use</a>
               </div>
               <div class="f12">
-                <a href="" class="blink block white-i t-decor">Contact Us</a>
-                <a href="" class="blink block m-t-5 white-i t-decor"></a>
+                <a href="" class="blink block white">Contact Us</a>
+                <a href="" class="blink block m-t-5 white"></a>
               </div>
             </div>
 
@@ -148,8 +191,8 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px">
-        <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
+        <img src="images/main.png" class="img-fluid main-logo" width="400px">
+        <div class="slogan">Kill First, Die Last, No Luck, All Skill</div>
       </div>
 
     </section>
@@ -161,8 +204,5 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  @stack('scripts')
-
 </body>
 </html>

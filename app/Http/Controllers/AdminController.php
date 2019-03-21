@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contest;
+use App\ContestPlayer;
 use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-    
+
     public function index() {
     	return view('admin.index');
     }
@@ -32,18 +33,18 @@ class AdminController extends Controller
     	$contest->rank_4 = $request->input('rank4');
     	$contest->rank_5 = $request->input('rank5');
         $contest->no_of_teams = $request->input('noOfTeams');
-    	$contest->total_collection = $request->input('totalCollection');
+        $contest->total_collection = $request->input('totalCollection');
 
-    	if($contest->save()) {
+        if($contest->save()) {
             session()->flash('message','Success! Contest created.');
             session()->flash('class','alert-success');
-    		
-    	} else {
+
+        } else {
             session()->flash('message','Opps! Failed to create contest.');
             session()->flash('class','alert-danger');
-    	}
+        }
 
-    	return redirect('admin/contest/new');
+        return redirect('admin/contest/new');
 
     }
 
@@ -83,6 +84,12 @@ class AdminController extends Controller
         return view('admin.show_contests',$data);
     }
 
+    public function contest($id) {
+        $data['contest'] = Contest::where('is_deleted',0)->find($id);
+        $data['contest']->contest_player;
+        return view('admin.contest_details',$data);
+    }
+
     public function editContest($id) {
         $data['contest'] = Contest::find($id);
         if($data['contest']->is_active == 0) {
@@ -97,7 +104,8 @@ class AdminController extends Controller
     public function deleteContest($id) {
         $contest = Contest::where('is_active',1)->find($id);
         if(isset($contest)){
-            $contest->delete();
+            $contest->is_deleted = 1;
+            $contest->save();
             session()->flash('message','Contest is deleted!');
             session()->flash('class','alert-success');
             return redirect('admin/contests');
@@ -106,6 +114,74 @@ class AdminController extends Controller
             session()->flash('class','alert-danger');
             return redirect('admin/contests');
         }
+    }
+
+    public function closeContest($id) {
+        $data['contest'] = Contest::where('is_deleted',0)->find($id);
+        if($data['contest']) {   
+            $data['contest']->contest_player;
+            return view('admin.close_contest',$data);
+        } else {
+            $data['contest'] ='';
+            session()->flash('message','Contest does not Exist!');
+            session()->flash('class','alert-danger');
+            return view('admin.close_contest',$data);
+        }
+    }
+
+    public function closingContest($id) { //in process
+        $contest = Contest::find($id);
+        if($contest->is_active == 1 && $contest->is_deleted == 0) {
+            
+                Contest::where('contest_id', $id)
+                ->update([ 
+                    'is_active' => 0
+                ]);
+
+            session()->flash('message','Players Details has been updated');
+            session()->flash('class','alert-success');
+            return redirect('admin/contest/close/'.$id);
+        } 
+        session()->flash('message','Failed to Updated Players Details');
+        session()->flash('class','alert-danger');
+        return redirect('admin/contest/close/'.$id);
+    }
+
+    public function updatePlayer($id,Request $request) {
+        $contest = Contest::find($id);
+        if($contest->is_active == 1 && $contest->is_deleted == 0) {
+            $user_id = $request->user_id;
+            $rank = $request->rank;
+            $kills = $request->kills;
+            $prize = $request->prize;
+            $total_prize = $request->total_prize;
+            for($i=0;$i<count($user_id);$i++) {
+                ContestPlayer::where('contest_id', $id)
+                ->where('user_id', $user_id[$i])
+                ->update([ 
+                    'rank' => $rank[$i],
+                    'kills' => $kills[$i],
+                    'prize' => $prize[$i],
+                    'pay_total_prize' => $total_prize[$i]
+                ]);
+            }
+
+            session()->flash('message','Players Details has been updated');
+            session()->flash('class','alert-success');
+            return redirect('admin/contest/close/'.$id);
+        } 
+        session()->flash('message','Failed to Updated Players Details');
+        session()->flash('class','alert-danger');
+        return redirect('admin/contest/close/'.$id);
+    }
+
+    public function testing() {
+        // $contests =  ContestPlayer::find(1);
+        $contests =  Contest::find(1);
+        // $contests->contest_player;
+        // return $contests->contest_player->user;
+        // $contests->
+        return $contests;
     }
 
 }
