@@ -5,7 +5,7 @@
 
 <section class="content-header">
 	<h1>
-		Contest Details (ID: {{$contest->id}})
+		Player Details (ID: {{$player->id}})
 	</h1>  
 </section>
 
@@ -19,18 +19,13 @@
     <div class="alert {{session('class')}}"><center>{{session('message')}}</center></div>
     @endif
 
-    @if($contest)
+    @if($player)
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab_1" data-toggle="tab">
-          Contest Details 
-          @if($contest->is_active == 1 )
-          <label class="label label-success">Active</label>
-          @else
-          <label class="label label-danger">Closed</label>
-          @endif
+          Player Details 
         </a></li>
-        <li><a href="#tab_2" data-toggle="tab">Players Joined</a></li>
+        <li><a href="#tab_2" data-toggle="tab">Contests Joined</a></li>
 
       </ul>
       <div class="tab-content">
@@ -43,47 +38,23 @@
               <!-- /.box-header -->
               <div class="box-body">
                 <dl class="dl-horizontal" style="font-size: 16px;font-weight: normal !important;">
-                  <dt>Type</dt>
-                  <dd>{{$contest->type}}</dd>
+                  <dt>ID</dt>
+                  <dd>{{$player->id}}</dd>
 
-                  <dt>Map</dt>
-                  <dd>{{$contest->map}}</dd>
+                  <dt>Name</dt>
+                  <dd>{{$player->name}}</dd>
 
-                  <dt>Date</dt>
-                  <dd>{{Carbon\Carbon::parse($contest->contest_date)->isoformat('MMM d,Y (dddd)')}}</dd>
+                  <dt>Nick</dt>
+                  <dd>{{$player->nick}}</dd>
 
-                  <dt>Time</dt>
-                  <dd>{{Carbon\Carbon::parse($contest->contest_time)->isoformat('h:mm a')}}</dd>
+                  <dt>Email</dt>
+                  <dd> {{$player->email}} </dd>
 
-                  <dt>Prize Pool</dt>
-                  <dd>{{$contest->prize_pool}}</dd>
+                  <dt>Joined On</dt>
+                  <dd>{{$player->created_at}}</dd>
 
-                  <dt>Entry Fee</dt>
-                  <dd>{{$contest->entry_fee}}</dd>
-
-                  <dt>Per Kill</dt>
-                  <dd>{{$contest->per_kill}}</dd>
-
-                  <dt>Rank # 1</dt>
-                  <dd>{{$contest->rank_1}}</dd>
-
-                  <dt>Rank # 2</dt>
-                  <dd>{{$contest->rank_2}}</dd>
-
-                  <dt>Rank # 3</dt>
-                  <dd>{{$contest->rank_3}}</dd>
-
-                  <dt>Rank # 4</dt>
-                  <dd>{{$contest->rank_4}}</dd>
-
-                  <dt>Rank # 5</dt>
-                  <dd>{{$contest->rank_5}}</dd>
-
-                  <dt>No of Teams</dt>
-                  <dd>{{$contest->no_of_teams}}</dd>
-
-                  <dt>Total Collection</dt>
-                  <dd>{{$contest->total_collection}}</dd>
+                  <dt>Contest Joined</dt>
+                  <dd>{{count($player->contest_player)}}</dd>
 
 
                 </dl>
@@ -103,30 +74,24 @@
                 <tr>
                   <th width="5%">S.No</th>
                   <th width="5%">ID</th>
-                  <th width="20%">Players</th>
-                  <th width="10%">Rank</th>
-                  <th width="10%">Kills</th>
-                  <th width="10%">Prize</th>
-                  <th width="10%">Total Prize</th>
-                  <th width="10%">Entry Fee status</th>
-                  <th width="10%">Prize status</th>
-                  <th width="10%">Pay Prize</th>
+                  <th>Type</th>
+                  <th>Map</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>View</th>
                 </tr>
               </thead>
               <tbody>
                 @php $count=1; @endphp
-                @foreach($contest->contest_player as $player)
+                @foreach($player->contest_player as $contest)
                 <tr>
                   <td> {{$count}} </td>
-                  <td> {{$player->user_id}} </td>
-                  <td> {{$player->user->name}} <br><span class="red">{{$player->user->nick}}</span> </td>
-                  <td class="green"> {{$player->rank}}</td>
-                  <td class="red"> {{$player->kills}}</td>
-                  <td class="green"> {{$player->prize}}</td>
-                  <td class="green"> {{$player->pay_total_prize}}</td>
-                  <td> @if($player->check_entry == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
-                  <td> @if($player->check_prize == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
-                  <td> <button class="btn btn-success pay-btn" id="{{$player->user_id}}">Pay</button> </td>
+                  <td> {{$contest->contest_id}} </td>
+                  <td> {{$contest->contest->type}} </td>
+                  <td> {{$contest->contest->map}} </td>
+                  <td> {{$contest->contest->contest_date}} </td>
+                  <td> {{$contest->contest->contest_time}} </td>
+                  <td> <a href="{{route('admin.contest',[ 'id' => $contest->contest_id ])}}" class="btn btn-info"> <i class="fa fa-list"></i> </a> </td>
                 </tr>
                 @php $count++ @endphp
                 @endforeach

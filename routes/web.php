@@ -27,13 +27,17 @@ Route::prefix('admin')->group(function () {
 	Route::get('/contest/new','AdminController@newContest')->name('admin.contest.new');
 	Route::post('contest/create','AdminController@createContest');
 	Route::get('/contests','AdminController@contests')->name('admin.contests');
-	Route::get('/contest/{id}','AdminController@contest');
+	Route::get('/contest/{id}','AdminController@contest')->name('admin.contest');
 	Route::get('/contest/edit/{id}','AdminController@editContest');
 	Route::post('/contest/update','AdminController@updateContest');
 	Route::get('/contest/delete/{id}','AdminController@deleteContest');
 	Route::get('/contest/close/{id}','AdminController@closeContest');
 	Route::post('/contest/close/{id}','AdminController@closingContest')->name('admin.contest.close');
 	Route::post('/contest/{id}/player/update','AdminController@updatePlayer')->name('admin.contest.player.update');
+	Route::post('/contest/player/pay','AdminController@payPlayerPrize')->name('admin.contest.player.pay');
+
+	Route::get('/players','AdminController@players')->name('admin.players');
+	Route::get('/player/{id}','AdminController@player')->name('admin.player');
 
 
 });

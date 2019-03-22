@@ -87,6 +87,14 @@
 
 
                 </dl>
+
+                <div>
+                  <form action="{{route('admin.contest.close',[ 'id' => $contest->id ])}}" method="POST">
+                    @csrf
+                    <input type="submit" name="close" value="@if($contest->is_active == 1 ) Close @else Active @endif" class="btn @if($contest->is_active == 1 ) btn-danger @else btn-success @endif">
+                  </form>
+                </div>
+
               </div>
               <!-- /.box-body -->
 
@@ -119,8 +127,8 @@
                     <td> {{$count}} </td>
                     <td> <input type="number" name="user_id[]" value="{{$player->user_id}}" class="form-control" readOnly required> </td>
                     <td> {{$player->user->name}} <br><span class="red">{{$player->user->nick}}</span> </td>
-                    <td> <input type="number" name="rank[]" value="{{$player->rank}}" class="form-control" required> </td>
-                    <td> <input type="number" name="kills[]" value="{{$player->kills}}" class="form-control" required> </td>
+                    <td> <input type="number" name="rank[]" value="{{$player->rank}}" class="form-control calr" required> </td>
+                    <td> <input type="number" name="kills[]" value="{{$player->kills}}" class="form-control calk" required> </td>
                     <td> <input type="number" name="prize[]" value="{{$player->prize}}" class="form-control" readOnly required> </td>
                     <td> <input type="number" name="total_prize[]" value="{{$player->pay_total_prize}}" class="form-control" readOnly required> </td>
                   </tr>
@@ -188,6 +196,58 @@ dt,dd {
 
     $('#contestTable').dataTable({
       "aaSorting": []
+    });
+
+    $('.calr').keyup(function(){
+      let rank = parseInt($(this).val());
+      let kills = parseInt($(this).parent().next().children().val());
+      let rank_1 = parseInt("{{$contest->rank_1}}");
+      let rank_2 = parseInt("{{$contest->rank_2}}");
+      let rank_3 = parseInt("{{$contest->rank_3}}");
+      let rank_4 = parseInt("{{$contest->rank_4}}");
+      let rank_5 = parseInt("{{$contest->rank_5}}");
+      let contest_per_kill = parseInt("{{$contest->per_kill}}");
+      let prize = 0;
+      let total_prize = 0;
+      
+      if(rank == 1) { prize = rank_1; } 
+      else if(rank == 2) { prize = rank_2; }
+      else if(rank == 3) { prize = rank_3; }
+      else if(rank == 4) { prize = rank_4; }
+      else if(rank == 5) { prize = rank_5; }
+      else { prize = 0; }
+
+      total_prize=prize+(contest_per_kill*kills);
+
+      $(this).parent().next().next().children().val(prize) //prize
+      $(this).parent().next().next().next().children().val(total_prize) //total prize
+
+    });
+
+    $('.calk').keyup(function(){
+      let rank = parseInt($(this).parent().prev().children().val());
+      let kills = parseInt($(this).val());
+      let rank_1 = parseInt("{{$contest->rank_1}}");
+      let rank_2 = parseInt("{{$contest->rank_2}}");
+      let rank_3 = parseInt("{{$contest->rank_3}}");
+      let rank_4 = parseInt("{{$contest->rank_4}}");
+      let rank_5 = parseInt("{{$contest->rank_5}}");
+      let contest_per_kill = parseInt("{{$contest->per_kill}}");
+      let prize = 0;
+      let total_prize = 0;
+      
+      if(rank == 1) { prize = rank_1; } 
+      else if(rank == 2) { prize = rank_2; }
+      else if(rank == 3) { prize = rank_3; }
+      else if(rank == 4) { prize = rank_4; }
+      else if(rank == 5) { prize = rank_5; }
+      else { prize = 0; }
+
+      total_prize=prize+(contest_per_kill*kills);
+
+      $(this).parent().next().children().val(prize) //prize
+      $(this).parent().next().next().children().val(total_prize) //total prize
+
     });
 
   })

@@ -6,9 +6,14 @@ use Illuminate\Http\Request;
 use App\Contest;
 use App\ContestPlayer;
 use Carbon\Carbon;
+use App\User;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','check_admin']);
+    }
 
     public function index() {
     	return view('admin.index');
@@ -132,19 +137,30 @@ class AdminController extends Controller
     public function closingContest($id) { //in process
         $contest = Contest::find($id);
         if($contest->is_active == 1 && $contest->is_deleted == 0) {
-            
-                Contest::where('contest_id', $id)
-                ->update([ 
-                    'is_active' => 0
-                ]);
 
-            session()->flash('message','Players Details has been updated');
+            Contest::where('id', $id)
+            ->update([ 
+                'is_active' => 0
+            ]);
+
+            session()->flash('message','Contest is closed now');
             session()->flash('class','alert-success');
             return redirect('admin/contest/close/'.$id);
-        } 
-        session()->flash('message','Failed to Updated Players Details');
-        session()->flash('class','alert-danger');
-        return redirect('admin/contest/close/'.$id);
+        } else if($contest->is_active == 0 && $contest->is_deleted == 0){
+            Contest::where('id', $id)
+            ->update([ 
+                'is_active' => 1
+            ]);
+
+            session()->flash('message','Contest is active now');
+            session()->flash('class','alert-success');
+            return redirect('admin/contest/close/'.$id);
+        } else {
+            session()->flash('message','Contest is deleted');
+            session()->flash('class','alert-danger');
+            return redirect('admin/contest/close/'.$id);
+        }
+
     }
 
     public function updatePlayer($id,Request $request) {
@@ -173,6 +189,26 @@ class AdminController extends Controller
         session()->flash('message','Failed to Updated Players Details');
         session()->flash('class','alert-danger');
         return redirect('admin/contest/close/'.$id);
+    }
+
+    public function payPlayerPrize(Request $request) {
+        ContestPlayer::where('contest_id', $request->contest_id)
+        ->where('user_id', $request->player_id)
+        ->update([ 
+            'check_prize' => 1
+        ]);
+        return "1";
+    }
+
+    public function players() {
+        $data['players'] = User::where('is_admin',0)->get();
+        return view('admin.show_players',$data);
+    }
+
+    public function player($id) {
+        $data['player'] = User::where('is_admin',0)->find($id);
+        $data['player']->contest_player;
+        return view('admin.player_details',$data);
     }
 
     public function testing() {

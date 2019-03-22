@@ -131,7 +131,7 @@
               </span>
           </a> 
           <ul class="treeview-menu">
-            <li><a href="{{route('admin.contests')}}">View</a></li>
+            <li><a href="{{route('admin.contests')}}">View All</a></li>
             <li><a href="{{route('admin.contest.new')}}">Add New</a></li>
           </ul>
         </li>
@@ -142,7 +142,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="">---</a></li>
+            <li><a href="{{route('admin.players')}}">View All</a></li>
             <li><a href="">---</a></li>
           </ul>
         </li>

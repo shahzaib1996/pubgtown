@@ -8,8 +8,9 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
-    public function index() {
-
+    public function __construct()
+    {
+        
     }
 
     public function contests_old() {
@@ -19,7 +20,8 @@ class UserController extends Controller
     }
 
     public function contest($id) {
-    	return view('user.contest');
+      $data['contests'] = Contest::where('is_deleted',0)->find($id);
+    	return view('user.contest',$data);
     }
 
     public function contests(Request $request){
