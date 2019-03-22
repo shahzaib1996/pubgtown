@@ -20,23 +20,23 @@
               <div class="cdc1 flex-sb-c relative">
                 <div class="t-l">
                   <div class="lightgrey f13">Prize Pool</div>
-                  <div class="black f14 strong op-8">Rs 7000</div>
+                  <div class="black f14 strong op-8">Rs {{$contest->prize_pool}}</div>
                 </div>
                 <div class="t-c">
                   <div class="lightgrey f13">Per Kill</div>
-                  <div class="black f14 strong op-8">Rs 50</div>
+                  <div class="black f14 strong op-8">Rs {{$contest->per_kill}}</div>
                 </div>
                 <div class="t-r">
                   <div class="lightgrey f13">Entry</div>
-                  <div class="black f14 strong op-8">Rs 100</div>
+                  <div class="black f14 strong op-8">Rs {{$contest->entry_fee}}</div>
                 </div>
               </div>
 
               <div class="cdc2 flex-sb-c relative f13 m-t-10">
-                <span class="strong blue capitalize">erangel</span>
-                <span class="strong dark-orange">Mar 4, Monday</span>
-                <span class="strong dark-orange">10:00 PM</span>
-                <span class="strong blue capitalize ">solo</span>
+                <span class="strong blue capitalize">{{$contest->map}}</span>
+                <span class="strong dark-orange">{{Carbon\Carbon::parse($contest->contest_date)->isoformat('MMM D, dddd')}}</span>
+                <span class="strong dark-orange">{{Carbon\Carbon::parse($contest->contest_time)->isoformat('h:mm a')}}</span>
+                <span class="strong blue capitalize ">{{$contest->type}}</span>
               </div>
 
               <div class="cdc3 relative f12 m-t-10">
@@ -44,8 +44,12 @@
                   <div class="progress-bar bg-warning bg-dark-orange" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="f13 flex-sb-c m-t-5">
-                  <span>30/100 Teams</span> 
-                  <button _ngcontent-c3="" class="btn btn-sm btn-success f13">Join Now</button>                 
+                  <span>{{ count($contest->contest_player) }}/{{$contest->no_of_teams}} Teams</span> 
+                  @if($contest->is_active == 1)
+                  <button class="btn btn-sm btn-success f13">Join Now</button> 
+                  @else
+                  <button class="btn btn-sm btn-success f13" disabled>Closed</button> 
+                  @endif                
                 </div>
                 
               </div>
@@ -145,27 +149,27 @@
                     </tr>
                     <tr>
                       <td>Rank #1</td>
-                      <td>Rs. 1000</td>
+                      <td>Rs. {{$contest->rank_1}}</td>
                     </tr>
                     <tr>
                       <td >Rank #2</td>
-                      <td>Rs. 500</td>
+                      <td>Rs. {{$contest->rank_2}}</td>
                     </tr>
                     <tr>
                       <td >Rank #3</td>
-                      <td>Rs. 300</td>
+                      <td>Rs. {{$contest->rank_3}}</td>
                     </tr>
                     <tr>
                       <td >Rank #4</td>
-                      <td>Rs. 100</td>
+                      <td>Rs. {{$contest->rank_4}}</td>
                     </tr>
                     <tr>
                       <td >Rank #5</td>
-                      <td>Rs. 100</td>
+                      <td>Rs. {{$contest->rank_5}}</td>
                     </tr>
                     <tr>
                       <td >Per Kill</td>
-                      <td>Rs. 50/kill</td>
+                      <td>Rs. {{$contest->per_kill}}/kill</td>
                     </tr>
                   </tbody>
                 </table>
@@ -191,30 +195,18 @@
                       <td class="no-border">Kills</td>
                       <td class="no-border">Rank</td>
                     </tr>
-                    <tr>
-                      <td width="64px">
-                        <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
-                      </td>
-                      <td>Shahzaib <br> <span class="grey">Eagle</span> </td>
-                      <td width="50px"> <span class="red">10</span> </td>
-                      <td width="100px">#1 <br> <span class="green">Rs. 1000</span> </td>
-                    </tr>
-                    <tr>
-                      <td width="64px">
-                        <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
-                      </td>
-                      <td>Testing Name <br> <span class="grey">Eagle</span> </td>
-                      <td width="50px"> <span class="red">10</span> </td>
-                      <td width="100px">#1 <br> <span class="green">Rs. 1000</span> </td>
-                    </tr>
-                    <tr>
-                      <td width="64px">
-                        <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
-                      </td>
-                      <td>Ahmed Ali <br> <span class="grey">Eagle</span> </td>
-                      <td width="50px"> <span class="red">10</span> </td>
-                      <td width="100px">#1 <br> <span class="green">Rs. 1000</span> </td>
-                    </tr>
+
+                    @foreach($contest->contest_player as $player)
+                      <tr>
+                        <td width="64px">
+                          <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
+                        </td>
+                        <td>{{$player->user->name}} <br> <span class="grey">{{$player->user->nick}}</span> </td>
+                        <td width="50px"> <span class="red">{{$player->kills}}</span> </td>
+                        <td width="100px">#{{$player->rank}} <br> <span class="green">Rs. {{$player->pay_total_prize}}</span> </td>
+                      </tr>
+                    @endforeach
+                    
                     
                   </tbody>
                 </table>

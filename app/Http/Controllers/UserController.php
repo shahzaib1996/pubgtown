@@ -20,7 +20,8 @@ class UserController extends Controller
     }
 
     public function contest($id) {
-      $data['contests'] = Contest::where('is_deleted',0)->find($id);
+      $data['contest'] = Contest::where('is_deleted',0)->find($id);
+      // return $data;
     	return view('user.contest',$data);
     }
 
@@ -54,8 +55,8 @@ class UserController extends Controller
 
               <div class="cdc2 flex-sb-c relative f13 m-t-10">
                 <span class="blue capitalize">'.$contest->map.'</span>
-                <span class=" dark-orange">'.Carbon::parse($contest->contest_date)->isoformat('MMM d, dddd').'</span>
-                <span class=" dark-orange">'.$contest->contest_time.'</span>
+                <span class=" dark-orange">'.Carbon::parse($contest->contest_date)->isoformat('MMM D, dddd').'</span>
+                <span class=" dark-orange">'.Carbon::parse($contest->contest_time)->isoformat('h:mm a').'</span>
                 <span class="blue capitalize ">'.$contest->type.'</span>
               </div>
 

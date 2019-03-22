@@ -50,7 +50,7 @@
                   <dd>{{$contest->map}}</dd>
 
                   <dt>Date</dt>
-                  <dd>{{Carbon\Carbon::parse($contest->contest_date)->isoformat('MMM d,Y (dddd)')}}</dd>
+                  <dd>{{Carbon\Carbon::parse($contest->contest_date)->isoformat('MMM D,Y (dddd)')}}</dd>
 
                   <dt>Time</dt>
                   <dd>{{Carbon\Carbon::parse($contest->contest_time)->isoformat('h:mm a')}}</dd>
