@@ -31,6 +31,9 @@ class CreateContestTable extends Migration
             $table->integer('total_collection');
             $table->boolean('is_active')->default(1);
             $table->boolean('is_deleted')->default(0);
+            $table->string('room_id')->nullable();
+            $table->string('room_password')->nullable();
+            $table->boolean('show_room_details')->default(0);
             $table->timestamps();
         });
     }

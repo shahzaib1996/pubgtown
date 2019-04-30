@@ -211,6 +211,25 @@ class AdminController extends Controller
         return view('admin.player_details',$data);
     }
 
+    public function updateRoom(Request $request) {
+        $contest = Contest::find($request->input('id'));
+
+        $contest->room_id = $request->input('roomID');
+        $contest->room_password = $request->input('roomPassword');
+        $contest->show_room_details = $request->input('showRoomDetails');
+        
+        if($contest->save()) {
+            session()->flash('message','Success! Room Updated.');
+            session()->flash('class','alert-success');
+            
+        } else {
+            session()->flash('message','Opps! Failed to update Room.');
+            session()->flash('class','alert-danger');
+        }
+
+        return redirect('admin/contest/edit/'.$request->input('id'));
+    }
+
     public function testing() {
         // $contests =  ContestPlayer::find(1);
         $contests =  Contest::find(1);
@@ -219,5 +238,7 @@ class AdminController extends Controller
         // $contests->
         return $contests;
     }
+
+
 
 }

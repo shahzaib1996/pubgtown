@@ -166,14 +166,65 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-success btn-lg pull-right">Update</button>
+                        </div>
+                    </div>
+
 
  				</div>
  				<!-- /.box-body -->
+            </form>
+            
  				<div class="box-footer">
- 					<button type="submit" class="btn btn-success btn-lg pull-right">Update</button>
+
+                    <form action="{{route('admin.contest.room.update')}}" method="POST">
+                        @csrf
+                    <input type="hidden" name="id" value="{{$contest->id}}" required>
+
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label">Room ID</label>
+
+                        <div class="col-sm-10" style="margin-bottom: 20px;">
+                            <input type="text" name="roomID" id="roomID" value="{{$contest->room_id}}" class="form-control" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Room Password</label>
+
+                        <div class="col-sm-10" style="margin-bottom: 20px;">
+                            <input type="text" name="roomPassword" id="roomPassword" value="{{$contest->room_password}}" class="form-control" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Show Room Details</label>
+
+                        <div class="col-sm-10" style="margin-bottom: 20px;">
+                            <select name="showRoomDetails" id="showRoomDetails" class="form-control">
+                                <option value="0">NO</option>
+                                <option value="1">YES</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-danger btn-lg pull-right">Update Room</button>
+                        </div>
+                    </div>
+
+                    </form>
+ 					
  				</div>
  				<!-- /.box-footer -->
- 			</form>
+
  		</div>
         @endif
  	</div>
@@ -224,6 +275,7 @@ $(function () {
 
     $('#map').val('{{$contest->map}}');
     $('#type').val('{{$contest->type}}');
+    $('#showRoomDetails').val('{{$contest->show_room_details}}');
 
 })
 

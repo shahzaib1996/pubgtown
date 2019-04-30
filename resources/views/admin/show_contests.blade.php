@@ -45,6 +45,7 @@
                   <th>Total Collection</th>
                   <th>Details</th>
                   <th>Edit</th>
+                  <th>Close</th>
                   <th>Delete</th>
                 </tr>
                 </thead>
@@ -76,16 +77,21 @@
                   <td>Rs. {{$contest->total_collection}}</td>
                   <td>
 
-                      <a href="../admin/contest/{{$contest->id}}" class="btn btn-info @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-list"></i> </a>
+                      <a href="../admin/contest/{{$contest->id}}" class="btn btn-info"> Details </a>
                   </td>
                   <td>
 
-                      <a href="../admin/contest/edit/{{$contest->id}}" class="btn btn-info @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-edit"></i> </a>
+                      <a href="../admin/contest/edit/{{$contest->id}}" class="btn btn-primary @if($contest->is_active == 0) disabled @endif"> Edit </a>
                   </td>
 
                   <td>
 
-                      <a href="../admin/contest/delete/{{$contest->id}}" class="btn btn-warning @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-trash-o"></i> </a>
+                      <a href="../admin/contest/close/{{$contest->id}}" class="btn btn-warning"> Close </a>
+                  </td>
+
+                  <td>
+
+                      <a href="../admin/contest/delete/{{$contest->id}}" class="btn btn-danger @if($contest->is_active == 0) disabled @endif"> <i class="fa fa-trash-o"></i> </a>
                   </td>
                 </tr>
                 @endforeach

@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('/contest/close/{id}','AdminController@closingContest')->name('admin.contest.close');
 	Route::post('/contest/{id}/player/update','AdminController@updatePlayer')->name('admin.contest.player.update');
 	Route::post('/contest/player/pay','AdminController@payPlayerPrize')->name('admin.contest.player.pay');
+	Route::post('/contest/room/update','AdminController@updateRoom')->name('admin.contest.room.update');
 
 	Route::get('/players','AdminController@players')->name('admin.players');
 	Route::get('/player/{id}','AdminController@player')->name('admin.player');

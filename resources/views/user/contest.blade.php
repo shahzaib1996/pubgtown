@@ -5,8 +5,15 @@
         <!-- contest list start -->
         <section class="list-contests">
 
-          <div class="alert alert-success m-t-20 hide">Room ID: ThisIsRoomID <br> Room Pass: 123456</div>
+          @if( $contest->show_room_details == 1 )
 
+            @foreach($contest->contest_player as $player)
+              @if( Auth::user()->id == $player->user_id )
+              <div class="alert alert-success m-t-20 "> <center> <b> Room Information </b> <br> ID: ThisIsRoomID <br> Pass: 123456 </center> </div>
+              @endif
+
+            @endforeach
+          @endif
          <!-- Contest Box Start -->
           <div class="contest-box">
             <div class="map">
@@ -202,8 +209,8 @@
                           <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
                         </td>
                         <td>{{$player->user->name}} <br> <span class="grey">{{$player->user->nick}}</span> </td>
-                        <td width="50px"> <span class="red">{{$player->kills}}</span> </td>
-                        <td width="100px">#{{$player->rank}} <br> <span class="green">Rs. {{$player->pay_total_prize}}</span> </td>
+                        <td width="50px"> <span class="red"> @if($contest->is_active != 1 ) {{$player->kills}} @else - @endif</span> </td>
+                        <td width="100px">@if($contest->is_active != 1 ) #{{$player->rank}} @else - @endif <br> <span class="green">@if($contest->is_active != 1 ) Rs. {{$player->pay_total_prize}} @else - @endif</span> </td>
                       </tr>
                     @endforeach
                     
