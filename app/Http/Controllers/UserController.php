@@ -81,4 +81,8 @@ class UserController extends Controller
         return view('user.index',compact('contests'));
     }
 
+    public function userLogin() {
+      return view('user.user_login');
+    }
+
 }

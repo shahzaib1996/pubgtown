@@ -522,6 +522,53 @@
     height: 20px;
 }
 
+.login-main-box {
+	background: ;
+	/*border: 1px solid #dee2e6!important;*/
+	/*border-radius: 5px;*/
+	margin-top: 20px;
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+}
+
+.login-box {
+	background: ;
+	width: 100%;
+}
+
+.field-box {
+	/*margin-bottom: 20px;*/
+}
+.field-box label {
+	background: ;
+	width: 100%;
+	padding: 0px;
+	margin:0px;
+
+}
+.field-box input {
+	border-radius: 0px;
+	width: 100%;
+}
+.btn-gmail {
+	background: #dc4a38;
+	width: 100%;
+	color: #fff;
+}
+.btn-gmail:hover, .btn-gmail:active {
+	background: #d63b28;
+	color: #fff;
+}
+
+.btn-fb {
+	background: #455c96;
+	color: #fff;
+}
+.btn-fb:hover, .btn-fb:active {
+	background: #395498;
+	color: #fff;
+}
+
 
 @media only screen and (max-width: 767px) {
 

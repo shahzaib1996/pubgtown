@@ -46,8 +46,12 @@ Route::prefix('admin')->group(function () {
 // User ROUTES
 Route::get('/','UserController@contests')->name('user');
 Route::get('/contest/{id}','UserController@contest');
+Route::get('/userlogin','UserController@userLogin');
 
 // Testing
 Route::get('/testing','AdminController@testing');
+
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
 

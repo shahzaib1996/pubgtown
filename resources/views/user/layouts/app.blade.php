@@ -17,7 +17,7 @@
   <!-- <link rel="stylesheet" href="css/main.css"> -->
   <link href="{{ asset('user/css/main.css') }}" rel="stylesheet">
 
-@stack('css')
+  @stack('css')
 
   <title>PUBGTOWN</title>
 </head>
@@ -37,10 +37,28 @@
             <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
           </a>
 
-          <!-- Before Login  -->
-          <a href="#" class="login">
+          @auth
+
+          <!-- After Login Btn -->
+          <div class="dropdown">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="images/instagram.png" class="circular w-30 h-30">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
+              <a class="dropdown-item dd-a-c" href="#">Profile</a>
+              <a class="dropdown-item dd-a-c" href="">Logout</a>
+            </div>
+          </div>
+
+          @else
+
+            <!-- Before Login  -->
+          <a href="#" class="login" data-toggle="modal" data-target="#exampleModal">
             LOG IN
           </a>
+
+          @endauth
+          
 
           <!-- After Login Btn -->
           <!-- <div class="dropdown">
@@ -154,6 +172,35 @@
 
     </section>
 
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">LOG IN </h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="field-box">
+            <a href="{{ url('/redirect') }}" class="btn btn-gmail"> <i class="fab fa-google-plus-g"></i> Login with Gmail </a>
+            <!-- <input type="button" class="btn btn-gmail" value="Login with Gmail" name="" > -->
+          </div>
+
+          <!-- <div class="field-box">
+            <input type="button" class="btn btn-fb" value="Login with Facebook" name="" >
+          </div> -->
+
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <!-- Optional JavaScript -->
