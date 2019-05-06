@@ -42,7 +42,7 @@
           <!-- After Login Btn -->
           <div class="dropdown">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="images/instagram.png" class="circular w-30 h-30">
+              <img src="{{Auth::user()->avatar}}" class="circular w-30 h-30">
             </a>
             <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
               <a class="dropdown-item dd-a-c" href="#">Profile</a>
