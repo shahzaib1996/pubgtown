@@ -16,7 +16,11 @@ class AdminController extends Controller
     }
 
     public function index() {
-    	return view('admin.index');
+        $data['contests'] = Contest::all()->count();
+        $data['players'] = User::all()->count()-1;
+        $data['active_contests'] = Contest::where('is_active',1)->count();
+        $data['closed_contests'] = Contest::where('is_active',0)->count();
+    	return view('admin.index',$data);
     }
 
     public function newContest() {

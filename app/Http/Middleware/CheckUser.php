@@ -17,7 +17,6 @@ class CheckUser
     public function handle($request, Closure $next)
     {
         if( Auth::user()->is_admin == 1 ) {
-            
             return redirect('admin/home');
         }
         return $next($request);

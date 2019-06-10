@@ -46,7 +46,15 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
               <a class="dropdown-item dd-a-c" href="#">Profile</a>
-              <a class="dropdown-item dd-a-c" href="">Logout</a>
+              <!-- <a class="dropdown-item dd-a-c" href="">Logout</a> -->
+              <a class="dropdown-item dd-a-c" href="{{ route('logout') }}"
+                                         onclick="event.preventDefault();
+                                                       document.getElementById('logout-form').submit();">
+                                          {{ __('Logout') }}
+                                      </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
             </div>
           </div>
 
@@ -166,7 +174,7 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px">
+        <!-- <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px"> -->
         <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
       </div>
 

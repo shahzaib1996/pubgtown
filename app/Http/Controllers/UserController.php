@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        
+        // $this->middleware(['auth','check_user']);
     }
 
     public function contests_old() {
@@ -29,7 +29,8 @@ class UserController extends Controller
         $contests=Contest::orderBy('id','desc')->paginate(4);
         $html='';
         foreach ($contests as $contest) {
-            $html.='<div class="contest-box">
+            $html.='<a href="contest/'.$contest->id.'" class="context-box-anchor">
+            <div class="contest-box">
             <div class="map">
               <div class="mimage">
                 <img src="'.asset('user/images/erangel.jpg').'" height="150px" width="150px">
@@ -54,23 +55,30 @@ class UserController extends Controller
               </div>
 
               <div class="cdc2 flex-sb-c relative f13 m-t-10">
-                <span class="blue capitalize">'.$contest->map.'</span>
-                <span class=" dark-orange">'.Carbon::parse($contest->contest_date)->isoformat('MMM D, dddd').'</span>
-                <span class=" dark-orange">'.Carbon::parse($contest->contest_time)->isoformat('h:mm a').'</span>
-                <span class="blue capitalize ">'.$contest->type.'</span>
+                <span class="strong blue capitalize">'.$contest->map.'</span>
+                <span class="strong dark-orange">'.Carbon::parse($contest->contest_date)->isoformat('MMM D, dddd').'</span>
+                <span class="strong dark-orange">'.Carbon::parse($contest->contest_time)->isoformat('h:mm a').'</span>
+                <span class="strong blue capitalize ">'.$contest->type.'</span>
               </div>
 
               <div class="cdc3 relative f12 m-t-10">
                 <div class="progress h-5-i">
-                  <div class="progress-bar bg-warning " role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-dark-orange" role="progressbar" style="width: '.count($contest->contest_player).'%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="f13 flex-sb-c m-t-5">
-                  <span>30/100 Teams</span> 
-                  <a class="btn btn-sm btn-success f13 white-i">Join Now</a>                 
+                  <span>'.count($contest->contest_player).'/'.$contest->no_of_teams.' Teams</span>';
+                  
+                  if($contest->is_active == 1){
+                  $html.='<button class="btn btn-sm btn-success f13">Join Now</button>';
+                  } else {
+                  $html.='<button class="btn btn-sm btn-success f13" disabled>Closed</button>'; 
+                  }
+              $html.='
                 </div>
               </div>
             </div>
-          </div>';
+          </div>
+          </a>';
 
         }
 
@@ -83,6 +91,10 @@ class UserController extends Controller
 
     public function userLogin() {
       return view('user.user_login');
+    }
+
+    public function joinContest($id) {
+      return "Joined Contest: ".$id;
     }
 
 }

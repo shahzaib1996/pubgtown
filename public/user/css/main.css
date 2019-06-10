@@ -569,6 +569,14 @@
 	color: #fff;
 }
 
+.context-box-anchor, .context-box-anchor:hover {
+	text-decoration: none;
+	color: #1b1b1b;
+}
+.fw {
+	color: #fff !important;
+}
+
 
 @media only screen and (max-width: 767px) {
 

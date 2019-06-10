@@ -5,6 +5,10 @@
         <!-- contest list start -->
         <section class="list-contests">
 
+        @if(session()->has('message'))
+          <div class="alert {{session('class')}}">{{session('message')}}</div>
+        @endif
+
           @if( $contest->show_room_details == 1 )
 
             @foreach($contest->contest_player as $player)
@@ -48,12 +52,12 @@
 
               <div class="cdc3 relative f12 m-t-10">
                 <div class="progress h-5-i">
-                  <div class="progress-bar bg-warning bg-dark-orange" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-warning bg-dark-orange" role="progressbar" style="width: {{count($contest->contest_player)}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="f13 flex-sb-c m-t-5">
                   <span>{{ count($contest->contest_player) }}/{{$contest->no_of_teams}} Teams</span> 
                   @if($contest->is_active == 1)
-                  <button class="btn btn-sm btn-success f13">Join Now</button> 
+                  <a class="btn btn-sm btn-success f13 fw" href="{{route('join.contest',['id'=>$contest->id])}}">Join Now</a> 
                   @else
                   <button class="btn btn-sm btn-success f13" disabled>Closed</button> 
                   @endif                
@@ -97,9 +101,9 @@
                     To join the contest, open PUBG in your mobile (at the specified time) and click on Room/Home Icon on the left side (just below map) and enter Room ID & Password
                   </li>
 
-                  <li>
+                  <!-- <li>
                     Room ID and Password will be shared with you on your email ID and mobile number 15 mins before contest start time.
-                  </li>
+                  </li> -->
 
                   <li>
 
@@ -116,19 +120,19 @@
                 <ul class="m-t-10 p-0-0-0-20 f13 f-roboto grey">
                   <li>
 
-                    You abide by our terms of use ( pubgpur.com/terms-of-use) by joining this term
+                    You abide by our terms of use ( pubgtown.com/terms-of-use) by joining this.
                   </li>
                   <li>
                     Teaming with other players or unregistered players entering room will result in permanent ban from further contests
                   </li>
                   <li>
-                    Only mobile phones are allowed, no Emulators or Tablets.
+                    Only mobile phones are allowed, no Emulators are allowed.
                   </li>
                   <li>
-                    PUBGpur has right to remove any participant at its sole discretion to ensure fairplay
+                    PUBGTown has right to remove any participant at its sole discretion to ensure fairplay
                   </li>
                   <li>
-                    PUBGpur has right to remove any participant whose linked PUBGpur username is incorrect
+                    PUBGTown has right to remove any participant whose linked PUBGTown username is incorrect
                   </li>
                   <li>
                     You are requested to join the room before match start time
@@ -137,7 +141,7 @@
                     Joining fees is completely non-refundable
                   </li>
                   <li>
-                    Prize money can only be transfered to linked PayTM account
+                    Prize money can only be transfered to linked Easy Paisa account
                   </li>
                   
                 </ul>
@@ -182,11 +186,11 @@
                 </table>
 
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  Prize money will be transferred to your linked PayTM account within 4 hours after reviewing the match through our unique ACHS (Anti Cheat & Hack System)
+                  Prize money will be transferred to your linked Easy Paisa account within 4 to 5 hours after reviewing the match through our unique ACHS (Anti Cheat & Hack System)
                 </div>
 
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  If the prize money is not credited in your PayTM account, write to us at support@pubgpur.com mentioning your username and mobile number along with the contest date.
+                  If the prize money is not credited in your Easy Paisa account, write to us at support@pubgtown.com mentioning your username and mobile number along with the contest date.
                 </div>
 
 
@@ -206,7 +210,7 @@
                     @foreach($contest->contest_player as $player)
                       <tr>
                         <td width="64px">
-                          <img src="{{ asset('user/images/facebook.png') }}" class="w-40 h-40 circular">
+                          <img src="{{$player->user->avatar}}" class="w-40 h-40 circular">
                         </td>
                         <td>{{$player->user->name}} <br> <span class="grey">{{$player->user->nick}}</span> </td>
                         <td width="50px"> <span class="red"> @if($contest->is_active != 1 ) {{$player->kills}} @else - @endif</span> </td>

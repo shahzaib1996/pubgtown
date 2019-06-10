@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Contests</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{ $contests }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +35,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Active Contests</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{ $active_contests }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -48,7 +48,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Closed Contests</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{ $closed_contests }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -61,7 +61,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Players</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{ $players }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

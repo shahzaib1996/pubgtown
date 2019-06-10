@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+// Route::get('/', function () {
+// 	return view('welcome');
+// });
 
 Auth::routes();
 
@@ -47,6 +47,8 @@ Route::prefix('admin')->group(function () {
 Route::get('/','UserController@contests')->name('user');
 Route::get('/contest/{id}','UserController@contest');
 Route::get('/userlogin','UserController@userLogin');
+
+Route::get('join/contest/{id}','UserController@joinContest')->name('join.contest');
 
 // Testing
 Route::get('/testing','AdminController@testing');
