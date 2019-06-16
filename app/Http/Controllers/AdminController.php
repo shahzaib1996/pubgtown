@@ -182,11 +182,25 @@ class AdminController extends Controller
                     'rank' => $rank[$i],
                     'kills' => $kills[$i],
                     'prize' => $prize[$i],
-                    'pay_total_prize' => $total_prize[$i]
+                    'pay_total_prize' => $total_prize[$i],
+                    'check_prize' => 1      
                 ]);
+
+                // $test =  (User::where('id',$user_id[$i])->get(['balance'])[0]->balance)+$total_prize[$i];
+                // return $test;
+                User::where('id',$user_id[$i])
+                ->update([
+                    'balance' => (User::where('id',$user_id[$i])->get(['balance'])[0]->balance)+$total_prize[$i] 
+                ]);
+
             }
 
-            session()->flash('message','Players Details has been updated');
+            Contest::where('id', $id)
+                ->update([ 
+                    'is_prize_paid' => 1      
+            ]);
+
+            session()->flash('message','Players Details has been updated and Prize Credited in there account');
             session()->flash('class','alert-success');
             return redirect('admin/contest/close/'.$id);
         } 

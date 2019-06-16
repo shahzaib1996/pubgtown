@@ -30,6 +30,7 @@
                   <th>ID#</th>
                   <th>Name</th>
                   <th>Nick</th>
+                  <th>Credit</th>
                   <th>Email</th>
                   <th>Join Date</th>
                   <th>View</th>
@@ -43,6 +44,7 @@
                   <td> {{$player->id}} </td>
                   <td> {{$player->name}} </td>
                   <td> {{$player->nick}} </td>
+                  <td> {{$player->balance}} </td>
                   <td> {{$player->email}} </td>
                   <td> {{$player->created_at}} </td>
                   

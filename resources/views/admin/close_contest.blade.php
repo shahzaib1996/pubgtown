@@ -136,7 +136,13 @@
                   @endforeach
                 </tbody>
               </table>
+              @if($contest->is_prize_paid == 0 )
               <input type="submit" name="submit" value="Update" class="btn btn-success">
+              @else
+              <h3>
+               <label class="label label-primary">Player Information Updated and Prize money credited into their accounts. </label>
+              </h3>
+              @endif
             </form>
           </div>
 
