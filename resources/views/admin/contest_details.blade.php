@@ -110,7 +110,7 @@
                   <th width="10%">Total Prize</th>
                   <th width="10%">Entry Fee status</th>
                   <th width="10%">Prize status</th>
-                  <th width="10%">Pay Prize</th>
+                  <!-- <th width="10%">Pay Prize</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -126,7 +126,7 @@
                   <td class="green"> {{$player->pay_total_prize}}</td>
                   <td> @if($player->check_entry == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
                   <td> @if($player->check_prize == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
-                  <td> <button class="btn btn-success pay-btn" id="{{$player->user_id}}">Pay</button> </td>
+                  <!-- <td> <button class="btn btn-success pay-btn" id="{{$player->user_id}}">Pay</button> </td> -->
                 </tr>
                 @php $count++ @endphp
                 @endforeach
@@ -191,37 +191,37 @@ dt,dd {
       "aaSorting": []
     });
 
-    $('.pay-btn').click(function(){
-      var contest_id = parseInt('{{$contest->id}}');
-      var player_id = $(this).attr('id');
-      var that = $(this);
+    // $('.pay-btn').click(function(){
+    //   var contest_id = parseInt('{{$contest->id}}');
+    //   var player_id = $(this).attr('id');
+    //   var that = $(this);
 
-      $.post("{{url('/admin/contest/player/pay')}}",
-      {
-       "_token": "{{ csrf_token() }}",
-       contest_id: contest_id,
-       player_id: player_id
+    //   $.post("{{url('/admin/contest/player/pay')}}",
+    //   {
+    //    "_token": "{{ csrf_token() }}",
+    //    contest_id: contest_id,
+    //    player_id: player_id
 
-     },
-     function(data,status) {
+    //  },
+    //  function(data,status) {
 
-      if(data === "1") {
-        that.parent().prev().html('');
-        that.parent().prev().html('<label class="label label-success">Paid</label>');
-        // alert(that.attr('id'));
-      } else {
-        alert("Failed to Pay");
-      } 
-
-
-
-     } 
+    //   if(data === "1") {
+    //     that.parent().prev().html('');
+    //     that.parent().prev().html('<label class="label label-success">Paid</label>');
+    //     // alert(that.attr('id'));
+    //   } else {
+    //     alert("Failed to Pay");
+    //   } 
 
 
-     );
+
+    //  } 
 
 
-    }); //end click event
+    //  );
+
+
+    // }); //end click event
 
   })
 
