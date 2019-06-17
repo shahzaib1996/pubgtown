@@ -13,7 +13,7 @@
 
             @foreach($contest->contest_player as $player)
               @if( Auth::user()->id == $player->user_id )
-              <div class="alert alert-success m-t-20 "> <center> <b> Room Information </b> <br> ID: ThisIsRoomID <br> Pass: 123456 </center> </div>
+              <div class="alert alert-success m-t-20 "> <center> <b> Room Information </b> <br> ID: {{$contest->room_id}} <br> Pass: {{$contest->room_id}} </center> </div>
               @endif
 
             @endforeach
