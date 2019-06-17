@@ -269,7 +269,7 @@ class AdminController extends Controller
             session()->flash('message','Contest is now live');
             session()->flash('class','alert-success');
             return redirect('admin/contest/close/'.$id);
-        } else if($contest->is_active == 0 && $contest->is_deleted == 0){
+        } else if($contest->is_active == 2 && $contest->is_deleted == 0){
             Contest::where('id', $id)
             ->update([ 
                 'is_active' => 1
@@ -279,7 +279,7 @@ class AdminController extends Controller
             session()->flash('class','alert-success');
             return redirect('admin/contest/close/'.$id);
         } else {
-            session()->flash('message','Contest is deleted');
+            session()->flash('message','Cannot change live status of closed contest');
             session()->flash('class','alert-danger');
             return redirect('admin/contest/close/'.$id);
         }

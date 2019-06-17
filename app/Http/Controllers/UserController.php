@@ -70,8 +70,10 @@ class UserController extends Controller
                   
                   if($contest->is_active == 1){
                   $html.='<button class="btn btn-sm btn-success f13">Join Now</button>';
-                  } else {
+                  } else if($contest->is_active == 0) {
                   $html.='<button class="btn btn-sm btn-success f13" disabled>Closed</button>'; 
+                  } else if($contest->is_active == 2) {
+                  $html.='<button class="btn btn-sm btn-danger f13">LIVE</button>'; 
                   }
               $html.='
                 </div>
@@ -95,6 +97,14 @@ class UserController extends Controller
 
     public function joinContest($id) {
       return "Joined Contest: ".$id;
+    }
+
+    public function showMenu() {
+      return view('user.menu');  
+    }
+
+    public function showProfile() {
+      return view('user.user_profile');  
     }
 
 }

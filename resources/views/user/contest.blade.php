@@ -58,8 +58,10 @@
                   <span>{{ count($contest->contest_player) }}/{{$contest->no_of_teams}} Teams</span> 
                   @if($contest->is_active == 1)
                   <a class="btn btn-sm btn-success f13 fw" href="{{route('join.contest',['id'=>$contest->id])}}">Join Now</a> 
-                  @else
+                  @elseif($contest->is_active == 0)
                   <button class="btn btn-sm btn-success f13" disabled>Closed</button> 
+                  @elseif($contest->is_active == 2)
+                  <button class="btn btn-sm btn-danger f13">LIVE</button>
                   @endif                
                 </div>
                 

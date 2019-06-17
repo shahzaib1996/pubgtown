@@ -89,9 +89,9 @@
                 </dl>
 
                 <div>
-                  <form action="{{route('admin.contest.close',[ 'id' => $contest->id ])}}" method="POST">
+                  <form action="{{route('admin.contest.close',[ 'id' => $contest->id ])}}" method="POST" style="width: 100px;float: left;">
                     @csrf
-                    <input type="submit" name="close" value="@if($contest->is_active == 1 ) Close @else Active @endif" class="btn @if($contest->is_active == 1 ) btn-danger @else btn-success @endif">
+                    <input type="submit" name="close" value="@if($contest->is_active == 1 ) Close @else Active @endif" class="btn @if($contest->is_active == 1 ) btn-danger @else btn-success @endif" @if($contest->is_active == 1 ) Close @else Active @endif>
                   </form>
 
                   <form action="{{route('admin.contest.live',[ 'id' => $contest->id ])}}" method="POST">

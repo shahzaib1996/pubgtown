@@ -57,4 +57,7 @@ Route::get('/testing','AdminController@testing');
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::get('/menu','UserController@showMenu')->name('show.menu');
+Route::get('/profile','UserController@showProfile')->name('show.profile');
+
 
