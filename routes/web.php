@@ -33,6 +33,7 @@ Route::prefix('admin')->group(function () {
 	Route::get('/contest/delete/{id}','AdminController@deleteContest');
 	Route::get('/contest/close/{id}','AdminController@closeContest');
 	Route::post('/contest/close/{id}','AdminController@closingContest')->name('admin.contest.close');
+	Route::post('/contest/live/{id}','AdminController@liveContest')->name('admin.contest.live');
 	Route::post('/contest/{id}/player/update','AdminController@updatePlayer')->name('admin.contest.player.update');
 	Route::post('/contest/player/pay','AdminController@payPlayerPrize')->name('admin.contest.player.pay');
 	Route::post('/contest/room/update','AdminController@updateRoom')->name('admin.contest.room.update');

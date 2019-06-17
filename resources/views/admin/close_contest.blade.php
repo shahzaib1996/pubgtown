@@ -93,6 +93,12 @@
                     @csrf
                     <input type="submit" name="close" value="@if($contest->is_active == 1 ) Close @else Active @endif" class="btn @if($contest->is_active == 1 ) btn-danger @else btn-success @endif">
                   </form>
+
+                  <form action="{{route('admin.contest.live',[ 'id' => $contest->id ])}}" method="POST">
+                    @csrf
+                    <input type="submit" name="live" value="@if($contest->is_active  == 2 ) Stop Live @else Start Live @endif" class="btn @if($contest->is_active == 2 ) btn-danger @else btn-success @endif">
+                  </form>
+
                 </div>
 
               </div>

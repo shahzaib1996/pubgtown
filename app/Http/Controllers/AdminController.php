@@ -243,6 +243,35 @@ class AdminController extends Controller
         return $contests;
     }
 
+    public function liveContest($id) { //in process
+        $contest = Contest::find($id);
+        if($contest->is_active == 1 && $contest->is_deleted == 0) {
+
+            Contest::where('id', $id)
+            ->update([ 
+                'is_active' => 2
+            ]);
+
+            session()->flash('message','Contest is now live');
+            session()->flash('class','alert-success');
+            return redirect('admin/contest/close/'.$id);
+        } else if($contest->is_active == 0 && $contest->is_deleted == 0){
+            Contest::where('id', $id)
+            ->update([ 
+                'is_active' => 1
+            ]);
+
+            session()->flash('message','Contest is active now');
+            session()->flash('class','alert-success');
+            return redirect('admin/contest/close/'.$id);
+        } else {
+            session()->flash('message','Contest is deleted');
+            session()->flash('class','alert-danger');
+            return redirect('admin/contest/close/'.$id);
+        }
+
+    }
+
 
 
 }
