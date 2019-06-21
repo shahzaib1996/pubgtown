@@ -107,4 +107,14 @@ class UserController extends Controller
       return view('user.user_profile');  
     }
 
+    public function showPrivacyPolicy() {
+      return view('user.policy');
+    }
+
+    public function showTermsOfUse() {
+      return view('user.terms');
+    }
+
+    
+
 }

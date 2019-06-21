@@ -60,4 +60,7 @@ Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/menu','UserController@showMenu')->name('show.menu');
 Route::get('/profile','UserController@showProfile')->name('show.profile');
 
+Route::get('privacy-policy','UserController@showPrivacyPolicy')->name('privacy.policy');
+Route::get('terms-of-use','UserController@showTermsOfUse')->name('terms.of.use');
+
 

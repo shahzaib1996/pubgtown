@@ -145,8 +145,8 @@
                 <a href="" class="blink block m-t-5 white-i t-decor"></a>
               </div>
               <div class="f12">
-                <a href="" class="blink block white-i t-decor">Privacy Policy</a>
-                <a href="" class="blink block m-t-5 white-i t-decor">Terms of Use</a>
+                <a href="{{ route('privacy.policy') }}" class="blink block white-i t-decor">Privacy Policy</a>
+                <a href="{{ route('terms.of.use') }}" class="blink block m-t-5 white-i t-decor">Terms of Use</a>
               </div>
               <div class="f12">
                 <a href="" class="blink block white-i t-decor">Contact Us</a>

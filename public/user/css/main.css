@@ -442,6 +442,10 @@
 	font-size: 14px;
 }
 
+.f16 {
+	font-size: 16px;
+}
+
 .f18 {
 	font-size: 18px;
 }
@@ -490,6 +494,10 @@
 	padding: 10px;
 }
 
+.p-20 {
+	padding: 20px;
+}
+
 .p-t-20 {
 	padding-top: 20px;
 }
@@ -529,6 +537,12 @@
 .b-s:hover {
 	box-shadow:0 0 6px rgba(156,156,156,.4);
 }
+
+.border-text {
+    border: 1px solid #dee2e6!important;
+}
+
+.border-text:hover{box-shadow:0 0 6px rgba(156,156,156,.4)}
 
 .footer {
 	background: #1b1b1b;
