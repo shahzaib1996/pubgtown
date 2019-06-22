@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contest;
 use Carbon\Carbon;
+use Auth;
+use App\Withdraw;
+use App\User;
 
 class UserController extends Controller
 {
@@ -115,6 +118,42 @@ class UserController extends Controller
       return view('user.terms');
     }
 
+    public function withdrawRequest() {
+      $data['withdraw_history'] = Withdraw::where('user_id',Auth::user()->id)->orderBy('id', 'desc')->get();
+      return view('user.withdraw_request',$data);
+    }
+
+    public function createWithdrawRequest(Request $request) {
+      $user_balance = Auth::user()->balance;
+      $amount = $request->input('amount');
+      $mobile = $request->input('mobile');
+
+      if( $amount <= $user_balance ) {
+
+        $withdraw = new Withdraw;
+        $withdraw->user_id = Auth::user()->id;
+        $withdraw->amount = $amount;
+        $withdraw->status = 0; // 0 = pending
+
+        $user = Auth::user();
+        $user->balance = ($user->balance)-($amount);
+        $user->mobile = $mobile;
+
+        if($withdraw->save() && $user->save()) {
+          session()->flash('message','Yup! Withdraw of Rs.'.$amount.' has been requested.');
+          session()->flash('class','alert-success');
+          return redirect('/withdraw');
+        } else {
+          session()->flash('message','Opps! Failed to withdraw.');
+          session()->flash('class','alert-danger');
+          return redirect('/withdraw');
+        }
+
+      }
+      session()->flash('message','Opps! Insufficient balance.');
+      session()->flash('class','alert-danger');
+      return redirect('/withdraw');
+    }
     
 
 }

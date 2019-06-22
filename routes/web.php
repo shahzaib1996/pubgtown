@@ -63,4 +63,7 @@ Route::get('/profile','UserController@showProfile')->name('show.profile');
 Route::get('privacy-policy','UserController@showPrivacyPolicy')->name('privacy.policy');
 Route::get('terms-of-use','UserController@showTermsOfUse')->name('terms.of.use');
 
+Route::get('withdraw','UserController@withdrawRequest')->name('withdraw');
+Route::post('withdraw/create','UserController@createWithdrawRequest')->name('withdraw.create');
+
 
