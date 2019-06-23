@@ -55,7 +55,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{route('admin.home')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>T</span>
       <!-- logo for regular state and mobile devices -->
@@ -152,6 +152,16 @@
           <ul class="treeview-menu">
             <li><a href="{{route('admin.players')}}">View All</a></li>
             <li><a href="">---</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Withdraw</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('admin.withdraws')}}">View All</a></li>
           </ul>
         </li>
       </ul>

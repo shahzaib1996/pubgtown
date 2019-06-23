@@ -41,6 +41,10 @@ Route::prefix('admin')->group(function () {
 	Route::get('/players','AdminController@players')->name('admin.players');
 	Route::get('/player/{id}','AdminController@player')->name('admin.player');
 
+	Route::get('/withdraws','AdminController@showWithdraw')->name('admin.withdraws');
+	Route::post('/withdraw/status','AdminController@changeWithdrawStatus')->name('admin.withdraw.status');
+
+
 
 });
 

@@ -7,6 +7,8 @@ use App\Contest;
 use App\ContestPlayer;
 use Carbon\Carbon;
 use App\User;
+use App\Withdraw;
+use App\WebSetting;
 
 class AdminController extends Controller
 {
@@ -284,6 +286,44 @@ class AdminController extends Controller
             return redirect('admin/contest/close/'.$id);
         }
 
+    }
+
+
+    public function showWithdraw() {
+        $data['withdraws'] = withdraw::orderBy('id','desc')->get();
+        return view('admin.show_withdraw',$data);
+    }
+
+
+    public function changeWithdrawStatus(Request $request) {
+        $withdraw_id = $request->input('withdraw_id');
+        $amount = $request->input('amount');
+        $message = $request->input('message');
+        $status = $request->input('status');
+        $user_id = $request->input('user_id');
+
+        Withdraw::where('id',$withdraw_id)
+                ->update([
+                    'transaction_id' => $message,
+                    'status' => $status
+                ]);
+        if($status == 1) {
+
+            WebSetting::where('id',1)->update(['website_balance'=>(WebSetting::where('id',1)->get(['website_balance'])[0]->website_balance)+$amount ]);
+            session()->flash('message','Withdraw Completed');
+            session()->flash('class','alert-success');
+        
+        } else if($status == 2) {
+            User::where('id',$user_id)
+                ->update([
+                    'balance' => (User::where('id',$user_id)->get(['balance'])[0]->balance)+$amount
+                ]);
+            session()->flash('message','Withdraw Refunded');
+            session()->flash('class','alert-success');
+        }
+
+        return redirect('admin/withdraws');
+        
     }
 
 

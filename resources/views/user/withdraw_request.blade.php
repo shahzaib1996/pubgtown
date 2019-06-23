@@ -88,7 +88,8 @@
                         <span class="badge badge-pill badge-success">Completed</span> <br>
                         <span class="trx"> {{$history->transaction_id}} </span>
                         @elseif( $history->status == 2 )
-                        <span class="badge badge-pill badge-info">Refunded</span>
+                        <span class="badge badge-pill badge-info">Refunded</span> <br>
+                        <span class="trx"> {{$history->transaction_id}} </span>
                         @endif
                       </td>
                     </tr>
