@@ -154,6 +154,14 @@ class UserController extends Controller
       session()->flash('class','alert-danger');
       return redirect('/withdraw');
     }
+
+    public function notLoginPage() {
+       if(Auth::check()){
+          return redirect('/');
+       } else {
+          return view('user.not_login');
+       }
+    }
     
 
 }

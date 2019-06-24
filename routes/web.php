@@ -71,4 +71,6 @@ Route::get('terms-of-use','UserController@showTermsOfUse')->name('terms.of.use')
 Route::get('withdraw','UserController@withdrawRequest')->name('withdraw')->middleware(['auth']);
 Route::post('withdraw/create','UserController@createWithdrawRequest')->name('withdraw.create')->middleware(['auth']);
 
+Route::get('userLogin','UserController@notLoginPage')->name('user.not.login');
+
 

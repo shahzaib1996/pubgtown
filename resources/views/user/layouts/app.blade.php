@@ -206,6 +206,10 @@
             <input type="button" class="btn btn-fb" value="Login with Facebook" name="" >
           </div> -->
 
+          <div class="t-c f14 m-t-10" style="color:#5f7762;">
+            We dare you to come <span class="red">Pochinki</span> !
+          </div>
+
         </div>
 
       </div>
