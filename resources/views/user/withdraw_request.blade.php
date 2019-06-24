@@ -59,6 +59,8 @@
 
               <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
 
+                @if( count($withdraw_history) != 0 )
+
                 <table class="table f13 f-roboto">
                   
                   <tbody>
@@ -97,14 +99,16 @@
                   </tbody>
                 </table>
 
+                @else 
+                  
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  Prize money will be transferred to your linked Easy Paisa account within 4 to 5 hours after reviewing the match through our unique ACHS (Anti Cheat & Hack System)
+                  <img src="{{asset('user/images/n-f.png')}}" style="width: 50px;height: auto;"> <br>
+                  No Records Found.
                 </div>
 
-                <div class="m-t-20 t-c f-roboto f13 grey">
-                  If the prize money is not credited in your Easy Paisa account, write to us at support@pubgtown.com mentioning your username and mobile number along with the contest date.
-                </div>
+                @endif
 
+                
 
               </div>
 

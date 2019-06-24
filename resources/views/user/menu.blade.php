@@ -7,7 +7,7 @@
 
   <div class="morelinks bg-white">
 
-    <a href="" class="flex-sb-c p-10 pointer">
+    <a href="{{route('show.profile')}}" class="flex-sb-c p-10 pointer">
       <div>
         <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
         <span class="m-l-10 ">Profile</span>
@@ -37,7 +37,7 @@
       </div>
     </a>
 
-    <a href="" class="flex-sb-c p-10 pointer">
+    <a href="{{route('withdraw')}}" class="flex-sb-c p-10 pointer">
       <div>
         <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
         <span class="m-l-10 ">Withdraw</span>
@@ -47,15 +47,6 @@
       </div>
     </a>
 
-    <a href="" class="flex-sb-c p-10 pointer">
-      <div>
-        <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
-        <span class="m-l-10 ">Transaction History</span>
-      </div>
-      <div class="f14">
-        <i class="fa fa-angle-right"></i>
-      </div>
-    </a>
 
     <div class="h-5 bg-black"> </div>
 
@@ -69,7 +60,7 @@
       </div>
     </a>
 
-    <a href="" class="flex-sb-c p-10 pointer">
+    <a href="{{route('user.contact')}}" class="flex-sb-c p-10 pointer">
       <div>
         <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
         <span class="m-l-10 ">Contact Us</span>
