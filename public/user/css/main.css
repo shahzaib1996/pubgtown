@@ -629,6 +629,7 @@
 }
 .profile-tb:focus{
 	border-bottom:2px solid #ec922e;
+	background: linear-gradient(white, #ec922e12);
 }
 
 .update-pro-btn {

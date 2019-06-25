@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingTable extends Migration
+class CreateWebsiteLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSettingTable extends Migration
      */
     public function up()
     {
-        Schema::create('setting', function (Blueprint $table) {
+        Schema::create('website_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('website_balance');
-            $table->integer('min_withdraw_limit');
+            $table->text('log');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateSettingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setting');
+        Schema::dropIfExists('website_logs');
     }
 }

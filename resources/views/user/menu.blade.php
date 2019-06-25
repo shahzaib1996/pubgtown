@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <!-- contest list start -->
 <section class="list-menu">
 
@@ -50,7 +51,7 @@
 
     <div class="h-5 bg-black"> </div>
 
-    <a href="" class="flex-sb-c p-10 pointer">
+    <a href="{{route('about.us')}}" class="flex-sb-c p-10 pointer">
       <div>
         <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
         <span class="m-l-10 ">About Us</span>

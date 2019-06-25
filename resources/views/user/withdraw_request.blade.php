@@ -6,7 +6,7 @@
         <section class="list-contests">
 
         @if(session()->has('message'))
-          <div class="alert {{session('class')}} m-t-20">{{session('message')}}</div>
+          <div class="alert {{session('class')}} m-t-20 t-c">{{session('message')}}</div>
         @endif
 
          

@@ -19,18 +19,18 @@
 
   @stack('css')
 
-  <title>PUBGTOWN</title>
+  <title>PUBGTown - Kill & Earn</title>
 </head>
 <body>
 
   <div id="main-wrapper">
 
-    <section id="section1"> 
+    <section id="section1">   
 
       <div class="header">
 
         <div class="head-sec-1">
-          <a href="{{route('show.menu')}}">
+          <a href="@if(url()->current() != route('show.menu')) {{route('show.menu')}} @else {{route('user')}} @endif">
             <i class="fas fa-bars"></i>
           </a>
           <a href="#" class="mlogo">
@@ -46,7 +46,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
               <a class="dropdown-item dd-a-c" style="background: #cc7d02;color:#fff !important;">Credit Rs.{{Auth::user()->balance}}</a>
-              <a class="dropdown-item dd-a-c" href="#">Profile</a>
+              <a class="dropdown-item dd-a-c" href="{{route('show.profile')}}">Profile</a>
               <!-- <a class="dropdown-item dd-a-c" href="">Logout</a> -->
               <a class="dropdown-item dd-a-c" href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
@@ -62,7 +62,7 @@
           @else
 
             <!-- Before Login  -->
-          <a href="#" class="login" data-toggle="modal" data-target="#exampleModal">
+          <a href="" class="login" data-toggle="modal" data-target="#exampleModal">
             LOG IN
           </a>
 
@@ -89,7 +89,7 @@
             <div class="row">
 
               <div class="col hs21 t-c">
-                <a href="/" class="active">
+                <a href="{{route('user')}}" class="active">
                   <i class="fas fa-trophy"></i> Contests
                 </a>
               </div>
@@ -116,7 +116,7 @@
 
 
       <div id="main-body" class="">
-
+        
         <!-- contest list start -->
         @yield('content')
 
@@ -149,7 +149,7 @@
                 <a href="{{ route('terms.of.use') }}" class="blink block m-t-5 white-i t-decor">Terms of Use</a>
               </div>
               <div class="f12">
-                <a href="" class="blink block white-i t-decor">Contact Us</a>
+                <a href="{{route('user.contact')}}" class="blink block white-i t-decor">Contact Us</a>
                 <a href="" class="blink block m-t-5 white-i t-decor"></a>
               </div>
             </div>

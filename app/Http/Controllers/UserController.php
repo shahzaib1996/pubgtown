@@ -8,6 +8,9 @@ use Carbon\Carbon;
 use Auth;
 use App\Withdraw;
 use App\User;
+use App\Contact;
+use Illuminate\Support\Facades\Route;
+
 
 class UserController extends Controller
 {
@@ -103,11 +106,27 @@ class UserController extends Controller
     }
 
     public function showMenu() {
+      // return Route::currentRouteName(); //use Illuminate\Support\Facades\Route;
       return view('user.menu');  
     }
 
-    public function showProfile() {
+    public function showUserProfile() {
       return view('user.user_profile');  
+    }
+
+    public function updateUserProfile(Request $request) {
+      $user = Auth::user();
+      $user->name = $request->input('name');
+      $user->nick = $request->input('nick');
+      $user->mobile = $request->input('mobile');
+      if($user->save()) {
+        session()->flash('message','Successfully Updated!');
+        session()->flash('class','alert-success');
+      } else {
+        session()->flash('message','Failed Update!');
+        session()->flash('class','alert-success');
+      }
+      return redirect('/profile');  
     }
 
     public function showPrivacyPolicy() {
@@ -161,6 +180,34 @@ class UserController extends Controller
        } else {
           return view('user.not_login');
        }
+    }
+
+    public function showContact() {
+      return view('user.contact');
+    }
+
+    public function createContact(Request $request) {
+      
+      $contact =  new Contact;
+      $contact->name = $request->input('name');
+      $contact->mobile = $request->input('mobile');
+      $contact->email = $request->input('email');
+      $contact->message = $request->input('message');
+
+      if($contact->save()) {
+        session()->flash('message','Your request has been submitted! You will be contacted through email soon.');
+        session()->flash('class','alert-success');
+      } else {
+        session()->flash('message','Failed to Contact!');
+        session()->flash('class','alert-danger');
+      }
+
+      return redirect('/contact');
+
+    } 
+
+    public function showAboutUs() {
+      return view('user.about_us');
     }
     
 

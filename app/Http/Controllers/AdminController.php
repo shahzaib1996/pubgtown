@@ -250,14 +250,6 @@ class AdminController extends Controller
         return redirect('admin/contest/edit/'.$request->input('id'));
     }
 
-    public function testing() {
-        // $contests =  ContestPlayer::find(1);
-        $contests =  Contest::find(1);
-        // $contests->contest_player;
-        // return $contests->contest_player->user;
-        // $contests->
-        return $contests;
-    }
 
     public function liveContest($id) { //in process
         $contest = Contest::find($id);

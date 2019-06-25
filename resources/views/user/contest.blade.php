@@ -5,6 +5,10 @@
         <!-- contest list start -->
         <section class="list-contests">
 
+        @if($contest)
+          
+
+
         @if(session()->has('message'))
           <div class="alert {{session('class')}}">{{session('message')}}</div>
         @endif
@@ -230,7 +234,15 @@
             
           </div>
 
-          
+          @else
+            
+            <div class="m-t-20 m-b-50 t-c f-roboto f13 grey">
+                  <img src="{{asset('user/images/n-f.png')}}" style="width: 50px;height: auto;"> <br>
+                  Invalid Contest Page
+                </div>
+
+        @endif
+
           
         </section>
 

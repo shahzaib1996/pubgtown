@@ -47,6 +47,9 @@
                   <dt>Nick</dt>
                   <dd>{{$player->nick}}</dd>
 
+                  <dt>Balance</dt>
+                  <dd>{{$player->balance}}</dd>
+
                   <dt>Email</dt>
                   <dd> {{$player->email}} </dd>
 

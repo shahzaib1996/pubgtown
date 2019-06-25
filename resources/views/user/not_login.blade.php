@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="t-c m-b-20 m-t-10" style="width: 100%;">
-                      <input type="button" class="btn update-pro-btn" name="request" value="click here to Login">
+                      <input type="button" class="btn update-pro-btn click-login-btn" name="request" value="click here to Login">
                     </div>
 
 
@@ -26,3 +26,11 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+  $('.click-login-btn').click(function(){
+    $('.login').click();
+  })
+</script>
+@endpush 
