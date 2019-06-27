@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Withdraw;
 use App\WebSetting;
+use App\Contact;
 
 class AdminController extends Controller
 {
