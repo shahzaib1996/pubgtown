@@ -318,6 +318,11 @@ class AdminController extends Controller
         
     }
 
+    public function showContactForm() {
+        $data['contacts'] = Contact::all();
+        return view('admin.contacts',$data);
+    }
+
 
 
 }
