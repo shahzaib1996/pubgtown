@@ -53,7 +53,6 @@ Route::prefix('admin')->group(function () {
 // User ROUTES
 Route::get('/','UserController@contests')->name('user');
 Route::get('/contest/{id}','UserController@contest');
-Route::get('/userlogin','UserController@userLogin');
 
 Route::get('join/contest/{id}','UserController@joinContest')->name('join.contest');
 

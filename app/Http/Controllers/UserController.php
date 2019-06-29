@@ -9,6 +9,7 @@ use Auth;
 use App\Withdraw;
 use App\User;
 use App\Contact;
+use App\WebSetting;
 use Illuminate\Support\Facades\Route;
 
 
@@ -146,6 +147,12 @@ class UserController extends Controller
       $user_balance = Auth::user()->balance;
       $amount = $request->input('amount');
       $mobile = $request->input('mobile');
+
+      if( $amount < WebSetting::where('id',1)->get(['min_withdraw_limit'])[0]->min_withdraw_limit ) {
+        session()->flash('message','Opps! Requested amount is less than minimum withdraw limit.');
+        session()->flash('class','alert-danger');
+        return redirect('/withdraw');
+      }
 
       if( $amount <= $user_balance ) {
 
