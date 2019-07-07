@@ -216,6 +216,11 @@ class UserController extends Controller
     public function showAboutUs() {
       return view('user.about_us');
     }
+
+    public function userContests() {
+      $data['user_contests'] = User::find(Auth::user()->id)->contest_player;
+      return view('user.user_contests',$data);
+    }
     
 
 }

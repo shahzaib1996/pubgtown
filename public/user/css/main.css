@@ -510,6 +510,39 @@
 	padding-right: 20px;
 }
 
+.p-t-10 {
+	padding-top: 10px;
+}
+
+.p-l-10 {
+	padding-left: 10px;
+}
+
+.p-r-10 {
+	padding-right: 10px;
+}
+
+.p-t-5 {
+	padding-top: 5px;
+}
+
+.p-l-5 {
+	padding-left: 5px;
+}
+
+.p-r-5 {
+	padding-right: 5px;
+}
+
+
+.p-l-20p {
+	padding-left: 20%;
+}
+
+.p-r-20p {
+	padding-right: 20%;
+}
+
 .pointer {
 	cursor: pointer;
 }
@@ -644,6 +677,10 @@
 
 .trx {
 	color:#a7a7a7;
+}
+
+.uc-details {
+	background: linear-gradient(#73737324,#ffffff00);height: auto;width: 100%;margin-top: -2px;
 }
 
 @media only screen and (max-width: 767px) {

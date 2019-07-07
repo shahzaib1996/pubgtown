@@ -78,4 +78,5 @@ Route::post('withdraw/create','UserController@createWithdrawRequest')->name('wit
 
 Route::get('userLogin','UserController@notLoginPage')->name('user.not.login');
 
+Route::get('mycontests','UserController@userContests')->name('user.contests');
 

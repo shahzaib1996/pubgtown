@@ -175,7 +175,7 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <!-- <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px"> -->
+        <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px">
         <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
       </div>
 
