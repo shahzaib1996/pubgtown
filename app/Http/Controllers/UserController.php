@@ -221,6 +221,43 @@ class UserController extends Controller
       $data['user_contests'] = User::find(Auth::user()->id)->contest_player;
       return view('user.user_contests',$data);
     }
+
+    public function depositRequest() {
+      $data['deposit_history'] = Deposit::where('user_id',Auth::user()->id)->orderBy('id', 'desc')->get();
+      return view('user.deposit_request',$data);
+    }
+
+    public function createDepositRequest(Request $request) {
+      
+      $amount = $request->input('amount');
+      $trans_id = $request->input('transaction_id');
+      $message = $request->input('message');
+
+      if( $amount <= $user_balance ) {
+
+        $deposit = new Deposit;
+        $deposit->user_id = Auth::user()->id;
+        $deposit->amount = $amount;
+        $deposit->transaction_id = $trans_id;
+        $deposit->user_message = $message; 
+        $deposit->approve_status = 0; // 0 = pending
+
+
+        if($withdraw->save() && $user->save()) {
+          session()->flash('message','Yup! Rs.'.$amount.' will be credited into your account after verification..');
+          session()->flash('class','alert-success');
+          return redirect('/deposit');
+        } else {
+          session()->flash('message','Opps! Failed to submit.');
+          session()->flash('class','alert-danger');
+          return redirect('/deposit');
+        }
+
+      }
+      session()->flash('message','Opps! Something went wrong.');
+      session()->flash('class','alert-danger');
+      return redirect('/deposit');
+    }
     
 
 }

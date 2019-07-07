@@ -19,7 +19,8 @@ class CreateDepositTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('amount');
             $table->string('transaction_id');
-            $table->text('message')->nullable();
+            $table->text('admin_message')->nullable();
+            $table->text('user_message')->nullable();
             $table->boolean('approve_status')->default(0);
             $table->timestamps();
         });
