@@ -101,7 +101,11 @@
                 <ul class="m-t-10 p-0-0-0-20 f13 f-roboto grey">
 
                   <li>
-                    Click on "Join Now" button and pay the entry fee to register in the contest
+                    Deposit amount in your account 
+                  </li>
+
+                  <li>
+                    Click on "Join Now" button and follow the instructions.
                   </li>
                   <li>
                     To join the contest, open PUBG in your mobile (at the specified time) and click on Room/Home Icon on the left side (just below map) and enter Room ID & Password
@@ -116,7 +120,7 @@
                     Room ID and Password will also appear on top of this page 15 mins before contest start time. If it doesn't appear, make sure that you have logged in and refresh the page.
                   </li>
                   <li>
-                    If you face any difficulty in joining the contest, write to us at info@pubgtown.com
+                    If you face any difficulty in joining the contest, write to us at info@newpubgtown.com
                   </li>
                   
                 </ul>
@@ -126,7 +130,7 @@
                 <ul class="m-t-10 p-0-0-0-20 f13 f-roboto grey">
                   <li>
 
-                    You abide by our terms of use ( pubgtown.com/terms-of-use) by joining this.
+                    You abide by our terms of use ( newpubgtown.com/terms-of-use) by joining this.
                   </li>
                   <li>
                     Teaming with other players or unregistered players entering room will result in permanent ban from further contests
@@ -146,9 +150,7 @@
                   <li>
                     Joining fees is completely non-refundable
                   </li>
-                  <li>
-                    Prize money can only be transfered to linked Easy Paisa account
-                  </li>
+                  
                   
                 </ul>
 
@@ -192,11 +194,11 @@
                 </table>
 
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  Prize money will be transferred to your linked Easy Paisa account within 4 to 5 hours after reviewing the match through our unique ACHS (Anti Cheat & Hack System)
+                  Prize money will be credited to your account within 4 to 5 hours after reviewing the match through our unique ACHS (Anti Cheat & Hack System)
                 </div>
 
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  If the prize money is not credited in your Easy Paisa account, write to us at support@pubgtown.com mentioning your username and mobile number along with the contest date.
+                  If the prize money is not credited in your account, write to us at support@pubgtown.com mentioning your username,pubg username, email and mobile number along with the contest date.
                 </div>
 
 
