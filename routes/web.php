@@ -83,3 +83,7 @@ Route::get('mycontests','UserController@userContests')->name('user.contests')->m
 
 Route::get('banned','UserController@userBanned')->name('user.banned')->middleware(['auth']);
 
+
+Route::get('deposit','UserController@depositRequest')->name('deposit')->middleware(['auth','is_banned']);
+Route::post('deposit/create','UserController@createDepositRequest')->name('deposit.create')->middleware(['auth','is_banned']);
+

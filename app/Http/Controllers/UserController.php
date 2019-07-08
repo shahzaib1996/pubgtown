@@ -10,6 +10,7 @@ use App\Withdraw;
 use App\User;
 use App\Contact;
 use App\WebSetting;
+use App\Deposit;
 use Illuminate\Support\Facades\Route;
 
 
@@ -223,6 +224,8 @@ class UserController extends Controller
     }
 
     public function depositRequest() {
+      $data['easypaisa_account'] = WebSetting::where('id',1)->get(['easy_paisa_account'])[0]->easy_paisa_account;
+      $data['jazzcash_account'] = WebSetting::where('id',1)->get(['jazz_cash_account'])[0]->jazz_cash_account;
       $data['deposit_history'] = Deposit::where('user_id',Auth::user()->id)->orderBy('id', 'desc')->get();
       return view('user.deposit_request',$data);
     }
@@ -233,7 +236,7 @@ class UserController extends Controller
       $trans_id = $request->input('transaction_id');
       $message = $request->input('message');
 
-      if( $amount <= $user_balance ) {
+      if( $amount != '' ) {
 
         $deposit = new Deposit;
         $deposit->user_id = Auth::user()->id;
@@ -243,7 +246,7 @@ class UserController extends Controller
         $deposit->approve_status = 0; // 0 = pending
 
 
-        if($withdraw->save() && $user->save()) {
+        if( $deposit->save() ) {
           session()->flash('message','Yup! Rs.'.$amount.' will be credited into your account after verification..');
           session()->flash('class','alert-success');
           return redirect('/deposit');

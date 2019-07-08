@@ -27,8 +27,18 @@
 
                 <div class="morelinks bg-white">
 
+
+                <div class="m-t-20 f-roboto f14 grey" style="width: 100%;padding-left:70px;padding-right:70px;"> 
+
+                  <div class="t-c f-roboto f16 strong m-b-10" >Deposit Method</div>
+                  1. Send Money to given Easy Paisa Account Number(s). <br>
+                  2. Fill and Submit payment details in the form below. <br>
+                  <div class="f16 t-c m-t-10"> Easy Paisa A/C # <span class="strong"> {{$easypaisa_account}} </span> </div>
+
+                </div>
+
                   
-                <form action="{{ route('withdraw.create') }}" method="POST">
+                <form action="{{ route('deposit.create') }}" method="POST">
                   @csrf
                   <div class=" p-10 pointer">
 
@@ -38,7 +48,7 @@
                       <span class="f12"></span>
                     </div>
 
-                    <div class="" style="width: 100%;padding-left:80px;padding-right:80px;">
+                    <div class="m-t-20" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Transaction ID <span style="color:red;">*</span> </label>
                       <input type="text" class="profile-tb font-roboto " name="transaction_id" value="" style="" placeholder="Enter here...">
                       <span class="f12"></span>

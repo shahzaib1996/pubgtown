@@ -15,6 +15,8 @@ class CreateWebsiteLogsTable extends Migration
     {
         Schema::create('website_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('log');
             $table->timestamps();
         });

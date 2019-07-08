@@ -17,6 +17,8 @@ class CreateSettingTable extends Migration
             $table->bigIncrements('id');
             $table->integer('website_balance');
             $table->integer('min_withdraw_limit');
+            $table->string('easy_paisa_account');
+            $table->string('jazz_cash_account');
             $table->timestamps();
         });
     }

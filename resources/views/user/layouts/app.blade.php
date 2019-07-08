@@ -34,7 +34,7 @@
             <i class="fas fa-bars"></i>
           </a>
           <a href="#" class="mlogo">
-            <!-- <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px"> -->
+            <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
             <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
           </a>
 
@@ -96,7 +96,7 @@
               </div>
 
               <div class="col hs22 t-c">
-                <a href="">
+                <a href="{{route('user.contests')}}">
                   <i class="fas fa-star"></i> My Contests
                 </a>
               </div>
@@ -176,7 +176,7 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px">
+        <!-- <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px"> -->
         <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
       </div>
 
