@@ -62,8 +62,8 @@ Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/menu','UserController@showMenu')->name('show.menu');
 
-Route::get('/profile','UserController@showUserProfile')->name('show.profile')->middleware(['auth']);
-Route::post('/profile','UserController@updateUserProfile')->name('user.profile.update')->middleware(['auth']);
+Route::get('/profile','UserController@showUserProfile')->name('show.profile')->middleware(['auth','is_banned']);
+Route::post('/profile','UserController@updateUserProfile')->name('user.profile.update')->middleware(['auth','is_banned']);
 
 Route::get('/contact','UserController@showContact')->name('user.contact');
 Route::post('/contact','UserController@createContact')->name('user.contact.create');
@@ -73,10 +73,13 @@ Route::get('terms-of-use','UserController@showTermsOfUse')->name('terms.of.use')
 
 Route::get('about-us','UserController@showAboutUs')->name('about.us');
 
-Route::get('withdraw','UserController@withdrawRequest')->name('withdraw')->middleware(['auth']);
-Route::post('withdraw/create','UserController@createWithdrawRequest')->name('withdraw.create')->middleware(['auth']);
+Route::get('withdraw','UserController@withdrawRequest')->name('withdraw')->middleware(['auth','is_banned']);
+Route::post('withdraw/create','UserController@createWithdrawRequest')->name('withdraw.create')->middleware(['auth','is_banned']);
 
 Route::get('userLogin','UserController@notLoginPage')->name('user.not.login');
 
-Route::get('mycontests','UserController@userContests')->name('user.contests');
+Route::get('mycontests','UserController@userContests')->name('user.contests')->middleware(['auth','is_banned']);
+
+
+Route::get('banned','UserController@userBanned')->name('user.banned')->middleware(['auth']);
 

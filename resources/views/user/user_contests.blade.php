@@ -5,7 +5,7 @@
         <!-- contest list start -->
         <section class="list-contests">
 
-        @if($user_contests)
+        @if( count($user_contests) != 0)
           
           @foreach($user_contests as $uc)
 

@@ -34,7 +34,8 @@
             <i class="fas fa-bars"></i>
           </a>
           <a href="#" class="mlogo">
-            <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
+            <!-- <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px"> -->
+            <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
           </a>
 
           @auth

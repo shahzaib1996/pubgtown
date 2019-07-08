@@ -258,6 +258,10 @@ class UserController extends Controller
       session()->flash('class','alert-danger');
       return redirect('/deposit');
     }
+
+    public function userBanned() {
+      return view('user.banned_user');
+    }
     
 
 }
