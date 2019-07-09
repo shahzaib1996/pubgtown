@@ -8,8 +8,10 @@ use App\ContestPlayer;
 use Carbon\Carbon;
 use App\User;
 use App\Withdraw;
+use App\Deposit;
 use App\WebSetting;
 use App\Contact;
+use DB;
 
 class AdminController extends Controller
 {
@@ -324,6 +326,45 @@ class AdminController extends Controller
         return view('admin.contacts',$data);
     }
 
+
+    public function showDeposit() {
+        $data['deposits'] = Deposit::orderBy('id','desc')->get();
+        return view('admin.show_deposit',$data);
+    }
+
+
+    public function changeDepositStatus(Request $request) {
+        $status = $request->input('status');
+        $deposit_id = $request->input('deposit_id');
+        $admin_message = $request->input('admin_message');
+        try{
+            DB::beginTransaction();
+            if($status == '1') { //Amount Credited
+                $amount = $request->input('amount');
+                $user_id = $request->input('user_id');
+                User::where('id',$user_id)
+                    ->update([
+                        'balance' => (User::where('id',$user_id)->get(['balance'])[0]->balance)+$amount
+                    ]); 
+          
+            }
+            Deposit::where('id',$deposit_id)
+                ->update([
+                    'admin_message' => $admin_message,
+                    'approve_status' => $status
+                ]);
+            DB::commit();
+        }catch(\Exception $e){
+            DB::rollback();
+            session()->flash('message','Failed to Accept Deposit Request!');
+            session()->flash('class','alert-danger');
+        }
+
+        session()->flash('message','Deposit Request Has been Accepted!');
+        session()->flash('class','alert-success');
+        return redirect('admin/deposits');
+        
+    }
 
 
 }

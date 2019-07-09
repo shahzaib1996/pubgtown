@@ -44,6 +44,9 @@ Route::prefix('admin')->group(function () {
 	Route::get('/withdraws','AdminController@showWithdraw')->name('admin.withdraws');
 	Route::post('/withdraw/status','AdminController@changeWithdrawStatus')->name('admin.withdraw.status');
 
+	Route::get('/deposits','AdminController@showDeposit')->name('admin.deposits');
+	Route::post('/deposit/status','AdminController@changeDepositStatus')->name('admin.deposit.status');
+
 	Route::get('/contacts','AdminController@showContactForm')->name('admin.contacts');
 
 

@@ -78,7 +78,8 @@
             
             <div class="m-t-20 m-b-50 t-c f-roboto f13 grey">
                   <img src="{{asset('user/images/n-f.png')}}" style="width: 50px;height: auto;"> <br>
-                  Invalid Contest Page
+                  You haven't Join any contest yet.<br><br>
+                  <a href="{{route('user')}}" class="joinnow-btn f14">Join Now</a>
                 </div>
 
 
