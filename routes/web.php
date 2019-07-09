@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function () {
 Route::get('/','UserController@contests')->name('user');
 Route::get('/contest/{id}','UserController@contest');
 
-Route::get('join/contest/{id}','UserController@joinContest')->name('join.contest');
+Route::get('join/contest/{id}','UserController@joinContest')->name('join.contest')->middleware(['auth','is_banned']);
 
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
@@ -89,4 +89,3 @@ Route::get('banned','UserController@userBanned')->name('user.banned')->middlewar
 
 Route::get('deposit','UserController@depositRequest')->name('deposit')->middleware(['auth','is_banned']);
 Route::post('deposit/create','UserController@createDepositRequest')->name('deposit.create')->middleware(['auth','is_banned']);
-

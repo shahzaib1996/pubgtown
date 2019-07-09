@@ -85,6 +85,7 @@
                       <td class="no-border">Amount</td>
                       <td class="no-border">Date</td>
                       <td class="no-border">Status</td>
+                      
                     </tr>
 
                     @php
@@ -101,15 +102,17 @@
                       <td> {{Carbon\Carbon::parse($history->created_at)->isoformat('DD-MMM-YYYY')}} </td>
                       <td>
                         @if( $history->approve_status == 0 )
-                        <span class="badge badge-pill badge-danger">Pending</span>
+                        <span class="badge badge-pill badge-warning">Pending</span> <br>
+                        <span class="trx">Trx ID {{$history->transaction_id}} </span>
                         @elseif( $history->approve_status == 1 )
                         <span class="badge badge-pill badge-success">Credited</span> <br>
-                        <span class="trx"> {{$history->transaction_id}} </span>
-                        @elseif( $history->status == 2 )
-                        <span class="badge badge-pill badge-info">Rejected</span> <br>
-                        <span class="trx"> {{$history->transaction_id}} </span>
+                        <span class="trx">Trx ID {{$history->transaction_id}} </span>
+                        @elseif( $history->approve_status == 2 )
+                        <span class="badge badge-pill badge-danger">Rejected</span> <br>
+                        <span class="trx">Trx ID {{$history->transaction_id}} </span>
                         @endif
                       </td>
+
                     </tr>
                     @endforeach
                   </tbody>
