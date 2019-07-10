@@ -130,7 +130,7 @@
                 <ul class="m-t-10 p-0-0-0-20 f13 f-roboto grey">
                   <li>
 
-                    You abide by our terms of use ( newpubgtown.com/terms-of-use) by joining this.
+                    You abide by our  <a href="{{route('terms.of.use')}}" style="color:blue;"> terms of use </a> by joining this.
                   </li>
                   <li>
                     Teaming with other players or unregistered players entering room will result in permanent ban from further contests
@@ -198,7 +198,7 @@
                 </div>
 
                 <div class="m-t-20 t-c f-roboto f13 grey">
-                  If the prize money is not credited in your account, write to us at support@pubgtown.com mentioning your username,pubg username, email and mobile number along with the contest date.
+                  If the prize money is not credited in your account, write to us at support@newpubgtown.com mentioning your username,pubg username, email and mobile number along with the contest date.
                 </div>
 
 
@@ -215,6 +215,8 @@
                       <td class="no-border">Rank</td>
                     </tr>
 
+                    @if( count($contest->contest_player) ) 
+
                     @foreach($contest->contest_player as $player)
                       <tr>
                         <td width="64px">
@@ -225,6 +227,14 @@
                         <td width="100px">@if($contest->is_active != 1 ) #{{$player->rank}} @else - @endif <br> <span class="green">@if($contest->is_active != 1 ) Rs. {{$player->pay_total_prize}} @else - @endif</span> </td>
                       </tr>
                     @endforeach
+
+                    @else
+
+                      <tr>
+                        <td class="t-c f-roboto f13" colspan="4">No Player joined this contest yet!</td>
+                      </tr>
+
+                    @endif
                     
                     
                   </tbody>

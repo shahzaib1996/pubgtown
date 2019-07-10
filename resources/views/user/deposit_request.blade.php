@@ -44,19 +44,19 @@
 
                     <div class="" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Amount <span style="color:red;">*</span> </label>
-                      <input type="number" class="profile-tb font-roboto " name="amount" value="" style="" placeholder="Enter here...">
+                      <input type="number" class="profile-tb font-roboto " name="amount" value="" style="" placeholder="Enter here..." required>
                       <span class="f12"></span>
                     </div>
 
                     <div class="m-t-20" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Transaction ID <span style="color:red;">*</span> </label>
-                      <input type="text" class="profile-tb font-roboto " name="transaction_id" value="" style="" placeholder="Enter here...">
+                      <input type="text" class="profile-tb font-roboto " name="transaction_id" value="" style="" placeholder="Enter here..." required>
                       <span class="f12"></span>
                     </div>
 
                     <div class="m-t-20" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Message <span style="color:red;">*</span> </label>
-                      <input type="text" class="profile-tb font-roboto " name="message" style="" placeholder="Enter Here...">
+                      <input type="text" class="profile-tb font-roboto " name="message" style="" placeholder="Enter Here..." required>
                       <span class="f12">Account Title/Mobile Number</span>
                     </div>
 

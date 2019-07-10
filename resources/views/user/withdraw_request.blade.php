@@ -34,13 +34,13 @@
 
                     <div class="" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Amount <span style="color:red;">*</span> </label>
-                      <input type="number" class="profile-tb font-roboto " name="amount" value="" style="" placeholder="Enter here...">
+                      <input type="number" class="profile-tb font-roboto " name="amount" value="" style="" placeholder="Enter here..." required>
                       <span class="f12">Minimum withdaw amount is Rs. 200</span>
                     </div>
 
                     <div class="m-t-20" style="width: 100%;padding-left:80px;padding-right:80px;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Easy Paisa Mobile Account Number <span style="color:red;">*</span> </label>
-                      <input type="text" maxlength="11" class="profile-tb font-roboto " name="mobile" value="{{Auth::user()->mobile}}" style="" placeholder="eg. 03471234567">
+                      <input type="text" maxlength="11" class="profile-tb font-roboto " name="mobile" value="{{Auth::user()->mobile}}" style="" placeholder="eg. 03471234567" required>
                       <span class="f12"></span>
                     </div>
 

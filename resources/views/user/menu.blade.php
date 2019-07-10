@@ -48,6 +48,16 @@
       </div>
     </a>
 
+    <a href="" class="flex-sb-c p-10 pointer">
+      <div>
+        <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
+        <span class="m-l-10 ">My Stats</span> <sup class="badge badge-danger">comming soon</sup>
+      </div>
+      <div class="f14">
+        <i class="fa fa-angle-right"></i>
+      </div>
+    </a>
+
 
     <div class="h-5 bg-black"> </div>
 

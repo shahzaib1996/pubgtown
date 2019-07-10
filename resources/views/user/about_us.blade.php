@@ -12,13 +12,22 @@
     </div>
 
     <div class="f-roboto grey f13 m-t-20">
-      This privacy policy explains our policy regarding the collection, use, disclosure and transfer of your
-information by PUBGTown. This Policy forms part and parcel of the “Terms of Use. This Privacy Policy is
-applicable to persons who browse or use the services. 
+      
+PUBGTown is an Online Platform which Offers Rewards and Unlimited Entertainment for Participating and Playing Games Online. We aim to be Pakistan’s biggest e-sports gaming platform with PUBG, CS GO and many more games.
 <br><br>
-The company respects the privacy of the users of the services and is committed to protect it in all
-respects. The information about the user as collected by the company is: 
+Currently it supports a Popular and Trending Game PUBG Mobile.
 <br><br>
+You can use your skills to earn some handsome rewards.
+<br><br>
+If you think you have what it takes, then this is the place for you. It is a game of skill that offers gamers a platform to showcase their talent and make a career as a professional gamer. 
+<br><br>
+You might be addicted to PUBG Mobile but just think what if you can start making money by Playing Mobile Games? Well, this is what PUBGTown Offers. Users can join Custom Rooms, and Get Rewards for Chicken Dinner and also for each Kill they Score. Sounds cool, huh?? Give it a try!
+<br><br>
+Founded and Launched on 21th July 2019, was developed by TechGeeks from Pakistan.
+
+<!-- We are small but growing fast and want to change the e-sports landscape in Pakistan. -->
+
+
 
     </div>
 

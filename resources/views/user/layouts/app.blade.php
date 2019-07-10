@@ -133,7 +133,7 @@
               <a href="">
                 <img src="{{ asset('user/images/instagram.png') }}" class="w-30">
               </a>
-              <a href="">
+              <a href="https://www.facebook.com/NewPUBGTown" target="_blank">
                 <img src="{{ asset('user/images/facebook.png') }}" class="w-30 m-l-20">
               </a>
               <a href="">
@@ -169,7 +169,7 @@
 
 
       <div class="footer flex-c-c t-c">
-        For any query, write to us at info@pubgtown.com
+        For any query, write to us at info@newpubgtown.com
       </div>
 
     </section>
