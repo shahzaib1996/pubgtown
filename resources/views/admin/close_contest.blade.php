@@ -89,9 +89,20 @@
                 </dl>
 
                 <div>
-                  <form action="{{route('admin.contest.close',[ 'id' => $contest->id ])}}" method="POST" style="width: 100px;float: left;">
+                  <form action="{{route('admin.contest.close',[ 'id' => $contest->id ])}}" method="POST" style="width: 200px;float: left;">
                     @csrf
-                    <input type="submit" name="close" value="@if($contest->is_active == 1 ) Close @else Active @endif" class="btn @if($contest->is_active == 1 ) btn-danger @else btn-success @endif" @if($contest->is_active == 1 ) Close @else Active @endif>
+                    <input type="submit" name="close" 
+                    @if($contest->is_active == 1 ) value="Close" 
+                    @elseif($contest->is_active == 0) value="Active" 
+                    @else value="Stop Live Status First" disabled 
+                    @endif" 
+
+                    class="btn 
+                    @if($contest->is_active == 1 ) btn-danger 
+                    @else btn-success 
+                    @endif" 
+
+                    >
                   </form>
 
                   <form action="{{route('admin.contest.live',[ 'id' => $contest->id ])}}" method="POST">

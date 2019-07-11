@@ -5,11 +5,16 @@
         <!-- contest list start -->
         <section class="list-contests">
 
+          <div class="f-roboto f16 t-c strong m-t-20">
+            My Contests
+          </div>
+
         @if( count($user_contests) != 0)
           
           @foreach($user_contests as $uc)
 
          <!-- Contest Box Start -->
+         <a href="{{route('contest',['id'=>$uc->contest])}}" class="context-box-anchor">
           <div class="contest-box">
             <div class="map">
               <div class="mimage">
@@ -61,7 +66,9 @@
             </div>
 
           </div><!-- Contest Box End -->
-          @if($uc->contest->is_active == 0)
+          </a>
+          <!-- uc->contest->is_active != 1 -->
+          @if(1)
           <div class="t-c p-t-10 uc-details flex-sb-c p-l-20p p-r-20p">
             <span class="badge badge-info">Rank {{$uc->rank}}</span>
             <span class="badge badge-danger">Kill(s) {{$uc->kills}}</span>

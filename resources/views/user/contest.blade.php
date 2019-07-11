@@ -10,7 +10,7 @@
 
 
         @if(session()->has('message'))
-          <div class="alert {{session('class')}}">{{session('message')}}</div>
+          <div class="alert {{session('class')}} m-t-20">{{session('message')}}</div>
         @endif
 
           @if( $contest->show_room_details == 1 )

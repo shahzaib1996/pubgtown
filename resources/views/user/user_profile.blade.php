@@ -9,10 +9,11 @@
 
     <div class="flex-sb-c p-10 pointer">
       <div class="t-c" style="width: 100%;background: ;">
-        <img src="{{Auth::user()->avatar}}" class="circular w-101 h-101 m-t-30">
+        <img src="{{Auth::user()->avatar}}" class="circular w-101 h-101 m-t-30" alt="Profile Picture">
         <p class="black strong f14 font-roboto m-t-20" >{{Auth::user()->name}}</p>
         <!-- <p class="black strong f14 font-roboto ">Identification Number: </p> -->
         <p class="black f14 font-roboto ">{{Auth::user()->email}}</p>
+        <p class="black f14 font-roboto ">Account Credit Rs.{{Auth::user()->balance}}</p>
       </div>
       
     </div>

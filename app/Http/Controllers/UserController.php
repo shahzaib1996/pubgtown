@@ -105,46 +105,75 @@ class UserController extends Controller
     }
 
     public function joinContestView($id) {
-      $contest = Contest::where('id',$id)->get(['id']);
+      $contest = Contest::where('id',$id)->where('is_deleted',0)->get(['id','is_active']);
       if(count($contest) == 1) {
+        if( $contest[0]->is_active != 1 ) {
+          session()->flash('message','Opps! Entry has been Closed.');
+          session()->flash('class','alert-danger');
+          return redirect('/contest/'.$id);
+        }
         return view('user.user_join_contest',['contest_id'=>$id]);
       } else {
-        return "No Contest";
+        return redirect('/');
       }
     }
 
     public function joinContestNew(Request $request,$id) {
-      $user_id = Auth::user()->id;
-      $contest = Contest::where('id',$id)->get(['no_of_teams'])->first();
-      // return $contest->no_of_teams;
+      $user = Auth::user();
+      $user_id = $user->id;
+      $contest = Contest::where('id',$id)->get()->first();
       $contest_players = ContestPlayer::where('contest_id',$id)->count(); // check contest no of teams
-      return $contest_players < $contest->no_of_teams ? "Join" : "Full";
-      $user_contest = ContestPlayer::where('contest_id',$id)->where('user_id',$user_id)->count(['id']); // check if player already joined
-      // return $contest_player;
-      if( $user_contest == 0) {
-        $user_nick = $request->input('user_nick');
-        try{
-          ContestPlayer::create([
-            'contest_id' => $contest_id,
-            'user_id' => $user_id,
-            'user_join_nick' => $user_nick
-          ]);
-          User::where('id',$user_id)
-            ->update([
-                'nick' => $user_nick
-          ]); 
-          session()->flash('message','Yup! You have joined the contest!');
-          session()->flash('class','alert-succces');
-        } catch(\Exception $e) {
-          session()->flash('message','Opps! Something Went Wrong.');
-          session()->flash('class','alert-danger');
-        }
+
+      if( $contest->is_active != 1 || $contest->is_deleted != 0 ) {
+        session()->flash('message','Opps! Entry has been Closed.');
+        session()->flash('class','alert-danger');
         return redirect('/contest/'.$id);
-      } else {
+      }
+
+      //Check Contest Players Doesn't Exceed Contest No of Teams
+      if( $contest_players >= $contest->no_of_teams ) {
+        session()->flash('message','Opps! Team are Full.');
+        session()->flash('class','alert-danger');
+        return redirect('/contest/'.$id);
+      }
+
+      $user_contest = ContestPlayer::where('contest_id',$id)->where('user_id',$user_id)->count(['id']);
+      //Check If user already joined
+      if( $user_contest != 0 ) {
         session()->flash('message','Opps! You have already joined this contest.');
         session()->flash('class','alert-danger');
         return redirect('/contest/'.$id);
       }
+
+      //Check if user balance is sufficient
+      if( $user->balance < $contest->entry_fee ) {
+        session()->flash('message','Opps! Insufficient balance to Join.');
+        session()->flash('class','alert-danger');
+        return redirect('/contest/'.$id);
+      } else {
+        try{
+          $user_nick = $request->input('user_nick');
+          ContestPlayer::create([
+              'contest_id' => $id,
+              'user_id' => $user_id,
+              'user_join_nick' => $user_nick
+          ]);
+          User::where('id',$user_id)
+            ->update([
+                'balance'=> ($user->balance-$contest->entry_fee),
+                'nick' => $user_nick
+          ]); 
+          session()->flash('message','Yup! You have joined the contest!');
+          session()->flash('class','alert-success');
+        } catch(\Exception $e) {
+          session()->flash('message','Opps! Something Went Wrong.');
+          session()->flash('class','alert-danger');
+        }
+
+      }
+      return redirect('/contest/'.$id);
+
+
     }
 
     public function showMenu() {
