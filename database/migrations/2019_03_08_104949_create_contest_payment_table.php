@@ -19,6 +19,7 @@ class CreateContestPaymentTable extends Migration
             $table->foreign('contest_id')->references('id')->on('contest')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('user_join_nick');
             $table->integer('rank')->default(0);
             $table->integer('kills')->default(0);
             $table->integer('pay_entry')->default(0);

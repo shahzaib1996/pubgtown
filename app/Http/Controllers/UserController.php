@@ -11,6 +11,7 @@ use App\User;
 use App\Contact;
 use App\WebSetting;
 use App\Deposit;
+use App\ContestPlayer;
 use Illuminate\Support\Facades\Route;
 
 
@@ -103,8 +104,47 @@ class UserController extends Controller
       return view('user.user_login');
     }
 
-    public function joinContest($id) {
-      return "Joined Contest: ".$id;
+    public function joinContestView($id) {
+      $contest = Contest::where('id',$id)->get(['id']);
+      if(count($contest) == 1) {
+        return view('user.user_join_contest',['contest_id'=>$id]);
+      } else {
+        return "No Contest";
+      }
+    }
+
+    public function joinContestNew(Request $request,$id) {
+      $user_id = Auth::user()->id;
+      $contest = Contest::where('id',$id)->get(['no_of_teams'])->first();
+      // return $contest->no_of_teams;
+      $contest_players = ContestPlayer::where('contest_id',$id)->count(); // check contest no of teams
+      return $contest_players < $contest->no_of_teams ? "Join" : "Full";
+      $user_contest = ContestPlayer::where('contest_id',$id)->where('user_id',$user_id)->count(['id']); // check if player already joined
+      // return $contest_player;
+      if( $user_contest == 0) {
+        $user_nick = $request->input('user_nick');
+        try{
+          ContestPlayer::create([
+            'contest_id' => $contest_id,
+            'user_id' => $user_id,
+            'user_join_nick' => $user_nick
+          ]);
+          User::where('id',$user_id)
+            ->update([
+                'nick' => $user_nick
+          ]); 
+          session()->flash('message','Yup! You have joined the contest!');
+          session()->flash('class','alert-succces');
+        } catch(\Exception $e) {
+          session()->flash('message','Opps! Something Went Wrong.');
+          session()->flash('class','alert-danger');
+        }
+        return redirect('/contest/'.$id);
+      } else {
+        session()->flash('message','Opps! You have already joined this contest.');
+        session()->flash('class','alert-danger');
+        return redirect('/contest/'.$id);
+      }
     }
 
     public function showMenu() {

@@ -710,6 +710,14 @@
 	background: linear-gradient(#73737324,#ffffff00);height: auto;width: 100%;margin-top: -2px;
 }
 
+.c-green {
+	color:#466149;
+}
+
+.tf-pd-lr {
+	width: 100%;padding-left:60px;padding-right:60px;
+}
+
 @media only screen and (max-width: 767px) {
 
 .map {

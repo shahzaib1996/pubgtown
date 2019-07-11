@@ -55,9 +55,10 @@ Route::prefix('admin')->group(function () {
 
 // User ROUTES
 Route::get('/','UserController@contests')->name('user');
-Route::get('/contest/{id}','UserController@contest');
+Route::get('/contest/{id}','UserController@contest')->name('contest');
 
-Route::get('join/contest/{id}','UserController@joinContest')->name('join.contest')->middleware(['auth','is_banned']);
+Route::get('join/contest/{id}','UserController@joinContestView')->name('join.contest')->middleware(['auth','is_banned']);
+Route::post('join/contest/{id}','UserController@joinContestNew')->name('create.join.contest')->middleware(['auth','is_banned']);
 
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');

@@ -122,6 +122,16 @@
         <!-- contest list start -->
         @yield('content')
 
+        <!-- Start Google Code -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3243708017049225",
+            enable_page_level_ads: true
+          });
+        </script>
+        <!-- End Google Code -->
+
         <section class="foot-box">
           <div class="bottom">
 
