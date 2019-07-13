@@ -214,9 +214,11 @@
             <!-- <input type="button" class="btn btn-gmail" value="Login with Gmail" name="" > -->
           </div>
 
-          <!-- <div class="field-box">
-            <input type="button" class="btn btn-fb" value="Login with Facebook" name="" >
-          </div> -->
+          <div class="field-box">
+            <a href="{{ url('facebook') }}" class="btn btn-fb m-t-20"> <i class="fab fa-facebook"></i> Login with Facebook </a>
+            <!-- <input type="button" class="btn btn-fb" value="Login with Facebook" name="" > -->
+          </div>
+
 
           <div class="t-c f14 m-t-10" style="color:#5f7762;">
             We dare you to come <span class="red">Pochinki</span> !

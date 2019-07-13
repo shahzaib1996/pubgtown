@@ -656,6 +656,7 @@
 
 .btn-fb {
 	background: #455c96;
+	width: 100%;
 	color: #fff;
 }
 .btn-fb:hover, .btn-fb:active {

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','balance'
+        'name', 'email', 'password','balance','google_id','facebook_id','avatar'
     ];
 
     /**
@@ -39,4 +39,17 @@ class User extends Authenticatable
     public function contest_player() {
         return $this->hasMany('App\ContestPlayer');
     }
+
+    public function addNew($input)
+    {
+        $check = static::where('facebook_id',$input['facebook_id'])->first();
+
+        if(is_null($check)){
+            return static::create($input);
+        }
+
+
+        return $check;
+    }
+
 }

@@ -90,3 +90,7 @@ Route::get('banned','UserController@userBanned')->name('user.banned')->middlewar
 
 Route::get('deposit','UserController@depositRequest')->name('deposit')->middleware(['auth','is_banned']);
 Route::post('deposit/create','UserController@createDepositRequest')->name('deposit.create')->middleware(['auth','is_banned']);
+
+
+Route::get('facebook', 'FacebookController@redirectToFacebook');
+Route::get('facebook/callback', 'FacebookController@handleFacebookCallback');
