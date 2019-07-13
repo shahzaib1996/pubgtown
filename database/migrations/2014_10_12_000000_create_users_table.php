@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->default('');
             $table->string('email')->unique();
             $table->string('google_id')->nullable();
+            $table->string('facbook_id')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

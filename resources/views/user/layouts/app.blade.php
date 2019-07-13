@@ -146,7 +146,7 @@
               <a href="https://www.facebook.com/NewPUBGTown" target="_blank">
                 <img src="{{ asset('user/images/facebook.png') }}" class="w-30 m-l-20">
               </a>
-              <a href="">
+              <a href="https://www.youtube.com/channel/UCEJx0oLaqqr0FoPvjNVSVaA">
                 <img src="{{ asset('user/images/youtube.png') }}" class="w-30 m-l-20">
               </a>
             </div>

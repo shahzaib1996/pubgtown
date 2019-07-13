@@ -230,6 +230,7 @@ class UserController extends Controller
         $withdraw->user_id = Auth::user()->id;
         $withdraw->amount = $amount;
         $withdraw->status = 0; // 0 = pending
+        $withdraw->created_at = Carbon::parse(now()); //current date time
 
         $user = Auth::user();
         $user->balance = ($user->balance)-($amount);
@@ -313,6 +314,7 @@ class UserController extends Controller
         $deposit->transaction_id = $trans_id;
         $deposit->user_message = $message; 
         $deposit->approve_status = 0; // 0 = pending
+        $deposit->created_at = Carbon::parse(now()); //current date time
 
 
         if( $deposit->save() ) {
