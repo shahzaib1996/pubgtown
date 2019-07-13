@@ -34,12 +34,7 @@
                 <input type="button" class="btn btn-fb" value="Login with Facebook" name="" >
               </div>
 
-
-
-            </div>
-            
-          </div>          
-          
+            </div>         
+          </div>                  
         </section>
-
 @endsection

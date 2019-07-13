@@ -1,10 +1,8 @@
 @extends('user.layouts.app')
 
 @section('content')
-
 <!-- contest list start -->
 <section class="list-menu">
-
   <div class="contest-box border-text p-20" style="margin:20px;background: #fff !important;">
 
     
@@ -18,13 +16,9 @@
                       <input type="button" class="btn update-pro-btn click-login-btn" name="request" value="click here to Login">
                     </div>
 
-
   </div>
 
-
-
 </section>
-
 @endsection
 
 @push('scripts')

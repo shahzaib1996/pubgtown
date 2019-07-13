@@ -336,6 +336,10 @@ class UserController extends Controller
     public function userBanned() {
       return view('user.banned_user');
     }
+
+    public function thirdPageView() {
+      return view('user.third_page');
+    }
     
 
 }

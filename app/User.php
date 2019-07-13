@@ -42,7 +42,8 @@ class User extends Authenticatable
 
     public function addNew($input)
     {
-        $check = static::where('facebook_id',$input['facebook_id'])->first();
+        // $check = static::where('facebook_id',$input['facebook_id'])->first();
+        $check = static::where('email',$input['email'])->first();
 
         if(is_null($check)){
             return static::create($input);

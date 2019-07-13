@@ -1,18 +1,13 @@
 @extends('user.layouts.app')
 
 @section('content')
-
 <!-- contest list start -->
 <section class="list-menu">
-
   <div class="contest-box border-text p-20" style="margin:20px;background: #fff !important;">
-
     <div class="f-roboto grey f16 t-c strong">
      About Us
     </div>
-
     <div class="f-roboto grey f13 m-t-20">
-      
 PUBGTown is an Online Platform which Offers Rewards and Unlimited Entertainment for Participating and Playing Games Online. We aim to be Pakistan’s biggest e-sports gaming platform with PUBG, CS GO and many more games.
 <br><br>
 Currently it supports a Popular and Trending Game PUBG Mobile.
@@ -26,17 +21,7 @@ You might be addicted to PUBG Mobile but just think what if you can start making
 Founded and Launched on 21th July 2019, was developed by TechGeeks from Pakistan.
 
 <!-- We are small but growing fast and want to change the e-sports landscape in Pakistan. -->
-
-
-
     </div>
-
-
-
   </div>
-
-
-
 </section>
-
 @endsection

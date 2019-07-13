@@ -1,11 +1,8 @@
 @extends('user.layouts.app')
 
 @section('content')
-
-
 <!-- contest list start -->
 <section class="list-menu">
-
   <div class="morelinks bg-white">
 
     <a href="{{route('show.profile')}}" class="flex-sb-c p-10 pointer">
@@ -58,7 +55,6 @@
       </div>
     </a>
 
-
     <div class="h-5 bg-black"> </div>
 
     <a href="{{route('about.us')}}" class="flex-sb-c p-10 pointer">
@@ -83,8 +79,5 @@
 
   </div>
 
-
-
 </section>
-
 @endsection

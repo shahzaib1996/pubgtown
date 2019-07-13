@@ -1,15 +1,14 @@
 @extends('user.layouts.app')
 
 @section('content')
-
         <!-- contest list start -->
         <section class="list-contests">
 
+        @if( count($user_contests) != 0)
+          
           <div class="f-roboto f16 t-c strong m-t-20">
             My Contests
           </div>
-
-        @if( count($user_contests) != 0)
           
           @foreach($user_contests as $uc)
 
@@ -89,11 +88,7 @@
                   <a href="{{route('user')}}" class="joinnow-btn f14">Join Now</a>
                 </div>
 
-
-
-        @endif
-
-          
+        @endif        
         </section>
 
 @endsection

@@ -70,7 +70,6 @@
 
   </div>
 
-
               </div>
 
               <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
@@ -125,20 +124,13 @@
                   No Records Found.
                 </div>
 
-                @endif
+                @endif       
 
-                
-
-              </div>
-
-              
+              </div>              
 
             </div>
             
           </div>
 
-          
-          
         </section>
-
 @endsection

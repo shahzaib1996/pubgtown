@@ -91,19 +91,19 @@
             <div class="row">
 
               <div class="col hs21 t-c">
-                <a href="{{route('user')}}" class="active">
+                <a href="{{route('user')}}" class="@if(url()->current() == route('user')) active @endif">
                   <i class="fas fa-trophy"></i> Contests
                 </a>
               </div>
 
-              <div class="col hs22 t-c">
-                <a href="{{route('user.contests')}}">
+              <div class="col hs22 t-c" >
+                <a href="{{route('user.contests')}}" class="@if(url()->current() == route('user.contests')) active @endif">
                   <i class="fas fa-star"></i> My Contests
                 </a>
               </div>
 
               <div class="col hs23 t-c">
-                <a href="">
+                <a href="{{route('user.videos')}}" class="@if(url()->current() == route('user.videos')) active @endif">
                   <i class="fab fa-youtube"></i> Videos
                 </a>
               </div>
@@ -187,8 +187,8 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <!-- <img src="{{ asset('user/images/big-logo-s.png') }}" class="img-fluid main-logo" width="400px"> -->
-        <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
+        <img src="{{ asset('user/images/new-big-logo.png') }}" class="img-fluid main-logo" width="400px">
+        <div class="slogan">EAT, SLEEP AND CHICKEN DINNER!</div>
       </div>
 
     </section>

@@ -94,3 +94,6 @@ Route::post('deposit/create','UserController@createDepositRequest')->name('depos
 
 Route::get('facebook', 'FacebookController@redirectToFacebook');
 Route::get('facebook/callback', 'FacebookController@handleFacebookCallback');
+
+
+Route::get('videos', 'UserController@thirdPageView')->name('user.videos');

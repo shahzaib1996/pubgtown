@@ -1,15 +1,13 @@
 @extends('user.layouts.app')
 
 @section('content')
-
         <!-- contest list start -->
         <section class="list-contests">
 
         @if(session()->has('message'))
           <div class="alert {{session('class')}} m-t-20 t-c">{{session('message')}}</div>
         @endif
-
-         
+     
           <div class="tabs-box">
 
             <ul class="nav nav-tabs f-roboto f14" id="myTab" role="tablist">
@@ -51,11 +49,9 @@
                   </div>
                 </form>
 
-
   </div>
 
-
-              </div>
+           </div>
 
               <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
 
@@ -108,18 +104,11 @@
 
                 @endif
 
-                
-
               </div>
-
-              
 
             </div>
             
-          </div>
-
-          
+          </div>     
           
         </section>
-
 @endsection

@@ -4,8 +4,6 @@
 
 <!-- contest list start -->
 <section class="list-menu">
-
-
   <div class="contest-box border-text " style="margin:20px;background: #fff !important;">
 
   <div class="m-t-20 f-roboto grey f16 t-c strong">
@@ -15,8 +13,7 @@
   @if(session()->has('message'))
     <div class="alert {{session('class')}} m-t-20" style="margin-left: 60px;margin-right: 60px;">{{session('message')}}</div>
   @endif
-
-    
+  
 <form action="{{route('create.join.contest',['id'=>$contest_id])}}" method="POST">
   @csrf   
     <div class="p-t-20 p-10 pointer">
@@ -39,8 +36,5 @@
 
   </div>
 
-
-
 </section>
-
 @endsection

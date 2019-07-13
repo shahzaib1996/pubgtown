@@ -1,14 +1,11 @@
 @extends('user.layouts.app')
 
 @section('content')
-
         <!-- contest list start -->
         <section class="list-contests">
 
         @if($contest)
           
-
-
         @if(session()->has('message'))
           <div class="alert {{session('class')}} m-t-20">{{session('message')}}</div>
         @endif
@@ -111,10 +108,6 @@
                     To join the contest, open PUBG in your mobile (at the specified time) and click on Room/Home Icon on the left side (just below map) and enter Room ID & Password
                   </li>
 
-                  <!-- <li>
-                    Room ID and Password will be shared with you on your email ID and mobile number 15 mins before contest start time.
-                  </li> -->
-
                   <li>
 
                     Room ID and Password will also appear on top of this page 15 mins before contest start time. If it doesn't appear, make sure that you have logged in and refresh the page.
@@ -149,11 +142,8 @@
                   </li>
                   <li>
                     Joining fees is completely non-refundable
-                  </li>
-                  
-                  
+                  </li>   
                 </ul>
-
 
               </div>
 
@@ -201,7 +191,6 @@
                   If the prize money is not credited in your account, write to us at support@newpubgtown.com mentioning your username,pubg username, email and mobile number along with the contest date.
                 </div>
 
-
               </div>
 
               <div class="tab-pane fade" id="leaderboard" role="tabpanel" aria-labelledby="leaderboard-tab">
@@ -235,15 +224,11 @@
                       </tr>
 
                     @endif
-                    
-                    
+  
                   </tbody>
                 </table>
-
               </div>
-
             </div>
-            
           </div>
 
           @else
@@ -252,10 +237,6 @@
                   <img src="{{asset('user/images/n-f.png')}}" style="width: 50px;height: auto;"> <br>
                   Invalid Contest Page
                 </div>
-
         @endif
-
-          
         </section>
-
 @endsection

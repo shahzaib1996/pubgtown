@@ -6,12 +6,6 @@
 <section class="list-contests" id="list-contests">
 
 
-
-  
-
-
-
-
 </section>
 <div class="ajax-loading m-t-10"> <center> <img src="{{asset('user/images/loader2.gif')}}" class="img-responsive" width="50px"> </center> </div>
 <div class="viewmore-box t-c">
