@@ -72,11 +72,12 @@
         <div class="tab-pane" id="tab_2">
 
           <div class="box-body">
-            <table class="table table-bordered table-hover f16">
+            <table id="pc" class="table table-bordered table-hover f16">
               <thead>
                 <tr>
                   <th width="5%">S.No</th>
                   <th width="5%">ID</th>
+                  <th>User Join Nick</th>
                   <th>Type</th>
                   <th>Map</th>
                   <th>Date</th>
@@ -86,18 +87,22 @@
               </thead>
               <tbody>
                 @php $count=1; @endphp
+                
                 @foreach($player->contest_player as $contest)
                 <tr>
                   <td> {{$count}} </td>
                   <td> {{$contest->contest_id}} </td>
+                  <td> {{$contest->user_join_nick}} </td>
                   <td> {{$contest->contest->type}} </td>
                   <td> {{$contest->contest->map}} </td>
-                  <td> {{$contest->contest->contest_date}} </td>
-                  <td> {{$contest->contest->contest_time}} </td>
+                  <td> {{Carbon\Carbon::parse($contest->contest->contest_date)->isoformat('MMM D,Y (dddd)')}} <br> {{$contest->contest->contest_date}} </td>
+                  <td> {{Carbon\Carbon::parse($contest->contest->contest_time)->isoformat('h:mm a')}} </td>
                   <td> <a href="{{route('admin.contest',[ 'id' => $contest->contest_id ])}}" class="btn btn-info"> <i class="fa fa-list"></i> </a> </td>
                 </tr>
                 @php $count++ @endphp
+
                 @endforeach
+                
               </tbody>
             </table>
           </div>
@@ -155,41 +160,37 @@ dt,dd {
 <script>
   $(function () {
 
-    $('#contestTable').dataTable({
+    $('#pc').dataTable({
       "aaSorting": []
     });
 
-    $('.pay-btn').click(function(){
-      var contest_id = parseInt('{{$contest->id}}');
-      var player_id = $(this).attr('id');
-      var that = $(this);
+    // $('.pay-btn').click(function(){
+    //   var contest_id = parseInt(''); //$contest->id
+    //   var player_id = $(this).attr('id');
+    //   var that = $(this);
 
-      $.post("{{url('/admin/contest/player/pay')}}",
-      {
-       "_token": "{{ csrf_token() }}",
-       contest_id: contest_id,
-       player_id: player_id
+    //   $.post("{{url('/admin/contest/player/pay')}}",
+    //   {
+    //    "_token": "{{ csrf_token() }}",
+    //    contest_id: contest_id,
+    //    player_id: player_id
 
-     },
-     function(data,status) {
+    //  },
+    //  function(data,status) {
 
-      if(data === "1") {
-        that.parent().prev().html('');
-        that.parent().prev().html('<label class="label label-success">Paid</label>');
-        // alert(that.attr('id'));
-      } else {
-        alert("Failed to Pay");
-      } 
+    //   if(data === "1") {
+    //     that.parent().prev().html('');
+    //     that.parent().prev().html('<label class="label label-success">Paid</label>');
+    //     // alert(that.attr('id'));
+    //   } else {
+    //     alert("Failed to Pay");
+    //   } 
 
+    //  } 
 
+    //  );
 
-     } 
-
-
-     );
-
-
-    }); //end click event
+    // }); //end click event
 
   })
 

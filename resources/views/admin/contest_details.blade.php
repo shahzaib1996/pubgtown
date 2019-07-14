@@ -108,7 +108,7 @@
                   <th width="10%">Kills</th>
                   <th width="10%">Prize</th>
                   <th width="10%">Total Prize</th>
-                  <th width="10%">Entry Fee status</th>
+                  <!-- <th width="10%">Entry Fee status</th> -->
                   <th width="10%">Prize status</th>
                   <!-- <th width="10%">Pay Prize</th> -->
                 </tr>
@@ -124,7 +124,7 @@
                   <td class="red"> {{$player->kills}}</td>
                   <td class="green"> {{$player->prize}}</td>
                   <td class="green"> {{$player->pay_total_prize}}</td>
-                  <td> @if($player->check_entry == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
+                  
                   <td> @if($player->check_prize == 1) <label class="label label-success">Paid</label> @else <label class="label label-danger">Pending</label> @endif </td>
                   <!-- <td> <button class="btn btn-success pay-btn" id="{{$player->user_id}}">Pay</button> </td> -->
                 </tr>

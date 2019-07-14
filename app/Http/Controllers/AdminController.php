@@ -231,6 +231,7 @@ class AdminController extends Controller
     public function player($id) {
         $data['player'] = User::where('is_admin',0)->find($id);
         $data['player']->contest_player;
+        // return $data;
         return view('admin.player_details',$data);
     }
 
