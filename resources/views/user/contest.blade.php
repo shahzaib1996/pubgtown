@@ -7,14 +7,15 @@
         @if($contest)
           
         @if(session()->has('message'))
-          <div class="alert {{session('class')}} m-t-20">{{session('message')}}</div>
+          <div class="alert {{session('class')}} m-t-20 t-c">{{session('message')}}</div>
         @endif
 
           @if( $contest->show_room_details == 1 )
 
             @foreach($contest->contest_player as $player)
               @if( Auth::user()->id == $player->user_id )
-              <div class="alert alert-success m-t-20 "> <center> <b> Room Information </b> <br> ID: {{$contest->room_id}} <br> Pass: {{$contest->room_id}} </center> </div>
+              <div class="m-t-20 m-b-20 f-roboto t-c f14 info-box">
+               <b> Room Information </b> <br> ID: {{$contest->room_id}} <br> Pass: {{$contest->room_id}} </center> </div>
               @endif
 
             @endforeach
@@ -71,6 +72,22 @@
             </div>
 
           </div><!-- Contest Box End -->
+
+        @auth
+          @if($contest->is_active == 1)
+          @foreach($contest->contest_player as $player)
+              @if( Auth::user()->id == $player->user_id )
+          <div class="m-t-20 m-b-20 f-roboto t-c f14 info-box">
+            To join the contest, open PUBG in your mobile (at the specified time) and click on Room/Home Icon on the left side (just below map) and enter Room ID & Password. <br> <br>
+            Room ID and Password will appear on top of this page 15 mins before contest start time. <br> <br>
+            Only mobile phones are allowed, no Emulators are allowed.
+          </div>
+              @endif
+          @endforeach
+          @endif
+        @endif
+
+
 
           <div class="tabs-box">
 
@@ -129,7 +146,7 @@
                     Teaming with other players or unregistered players entering room will result in permanent ban from further contests
                   </li>
                   <li>
-                    Only mobile phones are allowed, no Emulators are allowed.
+                     Only mobile phones are allowed, <span style="color:red;"> no Emulators are allowed. </span>
                   </li>
                   <li>
                     PUBGTown has right to remove any participant at its sole discretion to ensure fairplay

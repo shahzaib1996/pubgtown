@@ -68,7 +68,7 @@
           </a>
           <!-- uc->contest->is_active != 1 -->
           @if(1)
-          <div class="t-c p-t-10 uc-details flex-sb-c p-l-20p p-r-20p">
+          <div class="t-c p-t-10 uc-details flex-sb-c p-l-10p p-r-10p">
             <span class="badge badge-info">Rank {{$uc->rank}}</span>
             <span class="badge badge-danger">Kill(s) {{$uc->kills}}</span>
             <span class="badge badge-success">Prize Won {{$uc->pay_total_prize}} Rs</span>

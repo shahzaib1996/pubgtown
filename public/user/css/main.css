@@ -75,12 +75,13 @@
 .head-sec-2 .hs22 {
 	background: ;
 	font-size: 14px;
-	
+	color: #fff;
 }
 
 .head-sec-2 .hs23 {
 	background: ;
 	font-size: 14px;
+	color: #fff;
 }
 
 .head-sec-2 a {
@@ -570,6 +571,15 @@
 	padding-right: 20%;
 }
 
+.p-l-10p {
+	padding-left: 10%;
+}
+
+.p-r-10p {
+	padding-right: 10%;
+}
+
+
 .pointer {
 	cursor: pointer;
 }
@@ -719,6 +729,10 @@
 	width: 100%;padding-left:60px;padding-right:60px;
 }
 
+.info-box {
+	background: #EF5350;color: #fff; padding: 20px 40px 20px 40px;
+}
+
 @media only screen and (max-width: 767px) {
 
 .map {
@@ -726,6 +740,22 @@
 }
 .contest-details {
 	width: 100% !important;
+}
+
+}
+
+@media only screen and (max-width: 400px) {
+
+.head-sec-2 .hs21 {
+	font-size: 12px;
+}
+
+.head-sec-2 .hs22 {
+	font-size: 12px;
+}
+
+.head-sec-2 .hs23 {
+	font-size: 12px;
 }
 
 }

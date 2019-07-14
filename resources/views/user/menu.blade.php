@@ -77,6 +77,26 @@
       </div>
     </a>
 
+    <a href="{{route('terms.of.use')}}" class="flex-sb-c p-10 pointer">
+      <div>
+        <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
+        <span class="m-l-10 ">Terms of Use</span>
+      </div>
+      <div class="f14">
+        <i class="fa fa-angle-right"></i>
+      </div>
+    </a>
+
+    <a href="{{route('privacy.policy')}}" class="flex-sb-c p-10 pointer">
+      <div>
+        <img src="{{ asset('user/images/aim.png') }}" class="w-30" alt="Aim Icon">
+        <span class="m-l-10 ">Privacy Policy</span>
+      </div>
+      <div class="f14">
+        <i class="fa fa-angle-right"></i>
+      </div>
+    </a>
+
   </div>
 
 </section>
