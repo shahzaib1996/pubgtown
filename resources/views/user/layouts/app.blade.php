@@ -51,6 +51,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right p-0 b-r-0" aria-labelledby="dropdownMenuLink" >
               <a class="dropdown-item dd-a-c" style="background: #cc7d02;color:#fff !important;">Credit Rs.{{Auth::user()->balance}}</a>
+              <a class="dropdown-item dd-a-c" href="{{route('deposit')}}">Deposit</a>
+              <a class="dropdown-item dd-a-c" href="{{route('withdraw')}}">Withdraw</a>
               <a class="dropdown-item dd-a-c" href="{{route('show.profile')}}">Profile</a>
               <!-- <a class="dropdown-item dd-a-c" href="">Logout</a> -->
               <a class="dropdown-item dd-a-c" href="{{ route('logout') }}"
