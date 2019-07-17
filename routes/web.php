@@ -97,3 +97,9 @@ Route::get('facebook/callback', 'FacebookController@handleFacebookCallback');
 
 
 Route::get('videos', 'UserController@thirdPageView')->name('user.videos');
+
+Route::get('mysquad', 'UserController@mySquadView')->name('user.squad');
+
+Route::get('select/get/players', 'UserController@getSquadPlayers')->name('user.select.players');
+
+

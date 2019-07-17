@@ -341,5 +341,18 @@ class UserController extends Controller
       return view('user.third_page');
     }
     
+    public function mySquadView() {
+      return view('user.my_squad');
+    }
+
+    public function getSquadPlayers(Request $request) {
+        $search = $request->input('q');
+        // return $search;
+        // $users = User::all(['id','nick AS text']);
+        $users = User::where('is_ban',0)->where('is_admin',0)->where('id', 'like', $search.'%')->get(['id','nick AS text']);
+        return $users;
+    }
+
+
 
 }

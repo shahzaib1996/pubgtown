@@ -20,6 +20,8 @@
   <!-- <link rel="stylesheet" href="css/main.css"> -->
   <link href="{{ asset('user/css/main.css') }}" rel="stylesheet">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+
 
   @stack('css')
 
@@ -39,7 +41,8 @@
           </a>
           <a href="#" class="mlogo">
             <img src="{{ asset('user/images/new-main-logo.png') }}" class="img-fluid" width="130px">
-            <!-- <div class="slogan">Kill First, Die Last, No Luck, All Skill</div> -->
+
+            <!-- <div class="slogan">EAT, SLEEP AND CHICKEN DINNER!</div> -->
           </a>
 
           @auth
@@ -192,8 +195,8 @@
     <section id="section2" class="rhs flex-c-c border-left">
 
       <div class="logo-slogan-box">
-        <img src="{{ asset('user/images/new-big-logo.png') }}" class="img-fluid main-logo" width="400px">
-        <div class="slogan">EAT, SLEEP AND CHICKEN DINNER!</div>
+        <!-- <img src="{{ asset('user/images/new-big-logo.png') }}" class="img-fluid main-logo" width="400px"> -->
+        <!-- <div class="slogan">EAT, SLEEP AND CHICKEN DINNER!</div> -->
       </div>
 
     </section>
@@ -239,13 +242,17 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 
-  <script src="{{ asset('user/js/jquery-3.3.1.slim.min.js') }}"></script>
+  <!-- <script src="{{ asset('user/js/jquery-3.3.1.slim.min.js') }}"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
   <script src="{{ asset('user/js/popper.min.js') }}"></script>
 
   <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
   <script src="{{ asset('user/js/bootstrap.min.js') }}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
 
   @stack('scripts')
 
