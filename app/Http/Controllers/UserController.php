@@ -342,7 +342,9 @@ class UserController extends Controller
     }
     
     public function mySquadView() {
-      return view('user.my_squad');
+      $users = User::where('is_ban',0)->where('is_admin',0)->get( ['id','CONCAT(name," - ",nick) AS text'] );
+      return $users;
+      // return view('user.my_squad');
     }
 
     public function getSquadPlayers(Request $request) {

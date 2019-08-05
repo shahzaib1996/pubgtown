@@ -60,8 +60,6 @@
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Member 1 Identification Number (Captain)<span style="color:red;">*</span> </label>
                       <select class="profile-tb font-roboto " name="player_1" id="player1" style="width: 100%;" required>
                         <option value="{{Auth::user()->id}}"> {{Auth::user()->id}} - {{Auth::user()->name}} </option>
-                        <option value="0">DEF</option>
-                        <option value="0">GHI</option>
                       </select>
                       <span class="f12"></span>
                     </div>
