@@ -342,16 +342,24 @@ class UserController extends Controller
     }
     
     public function mySquadView() {
-      $users = User::where('is_ban',0)->where('is_admin',0)->get( ['id','CONCAT(name," - ",nick) AS text'] );
-      return $users;
-      // return view('user.my_squad');
+      // $users = User::where('is_ban',0)->where('is_admin',0)->get( ['id','nick AS text'] );
+      // foreach ($users as $key => $value) {
+      //   $users[$key]['test_key'] = 'testvalue';
+      // }
+      // return $users;
+      return view('user.my_squad');
     }
 
     public function getSquadPlayers(Request $request) {
         $search = $request->input('q');
         // return $search;
         // $users = User::all(['id','nick AS text']);
-        $users = User::where('is_ban',0)->where('is_admin',0)->where('id', 'like', $search.'%')->get(['id','nick AS text']);
+        $users = User::where('is_ban',0)->where('is_admin',0)->where('id', '!=',Auth::user()->id )->where('id', 'like', $search.'%')->get(['id','name','nick' ]);
+
+        foreach ($users as $key => $value) {
+          $users[$key]['text'] = $value['name']." - ".$value['nick']; 
+        }
+
         return $users;
     }
 
