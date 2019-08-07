@@ -102,4 +102,6 @@ Route::get('mysquad', 'UserController@mySquadView')->name('user.squad')->middlew
 
 Route::get('select/get/players', 'UserController@getSquadPlayers')->name('user.select.players');
 
+Route::get('check_squad_name', 'UserController@checkSquadName')->name('check.squad.name');
+
 

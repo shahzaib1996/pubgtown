@@ -363,6 +363,13 @@ class UserController extends Controller
         return $users;
     }
 
+    public function checkSquadName() {
+      
+      $squad_name = 
+      return
+
+    }
+
 
 
 }

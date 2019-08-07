@@ -46,13 +46,13 @@
                   <div class="alert {{session('class')}} m-t-20" style="margin-left: 60px;margin-right: 60px;">{{session('message')}}</div>
                 @endif
 
-              <form action="{{route('user.contact.create')}}" method="POST">
+              <form action="{{route('user.contact.create')}}" method="POST" onsubmit="return checkSquadName()">
                 @csrf   
                   <div class="p-t-20 p-10 pointer">
                     
                     <div class="" style="width: 100%;">
                       <label class="m-0 f12 strong font-roboto" style="color:#466149;">Squad Name <span style="color:red;">*</span> </label>
-                      <input type="text" class="profile-tb font-roboto " name="squad_name" value="" style="" placeholder="" required>
+                      <input type="text" class="profile-tb font-roboto " name="squad_name" id="squad_name" value="" style="" placeholder="" required>
                       <span class="f12"></span>
                     </div>
 
@@ -220,5 +220,31 @@ $(function () {
     });
 
 })
+
+function checkSquadName() {
+ var squad_name = $('#squad_name').val();
+ $.get( 
+    "{{route('check.squad.name')}}", { 
+      squad_name: squad_name
+    }, 
+    function(data) { 
+      console.log(data);
+    });
+ return false;
+}
+
+
+$(document).ready(function() { 
+  
+        $("#driver").click(function(event) { 
+                // $.get( 
+                //  "result.php", { 
+                //      name: "GFG" 
+                //  }, 
+                //  function(data) { 
+                //      $('#stage').html(data); 
+                //  }); 
+            }); 
+        }); 
 </script>
 @endpush
